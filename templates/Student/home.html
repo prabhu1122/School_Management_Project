@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if students %}
+        {% for student in students %}
+            <h4>Hello {{student}}</h4><br/>
+            <h6>Gender: {{student.gender}}</h6><br/>
+            <h6>Course: {{student.course_id}}</h6><br/>
+            <h6>Session: {{student.session_year_id}}</h6><br/>
+            <h6>Address: {{student.address}}</h6><br/>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

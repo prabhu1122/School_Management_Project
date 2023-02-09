@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        {% include 'includes/alert.html' %}
+
+        <form action="{% url 'update_student' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <h5 class="form-title">
+                <span class="text-success">Edit Students</span>
+              </h5>
+              <div class="col-auto text-right float-right ml-auto">
+              <a href="{% url 'view_student' %}" class="btn btn-outline-primary mr-2"><i class="fas fa-arrow-left"></i> Back</a>
+              <a href="{% url 'view_student' %}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+            </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Profile Pic</label>
+                <input type="file" class="form-control" name="profile_pic"/>
+                <input type="text" class="form-control" name="student_id" value="{% for i in students %}{{i.admin.id}}{% endfor %}" hidden/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="f_name" placeholder="First Name" value="{% for i in students %}{{i.admin.first_name}}{% endfor %}"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="l_name" placeholder="Last Name" value="{% for i in students %}{{i.admin.last_name}}{% endfor %}"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" name="username" placeholder="Username" value="{% for i in students %}{{i.admin.username}}{% endfor %}" required/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Only in case to change your password"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" value="{% for i in students %}{{i.admin.email}}{% endfor %}"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+             <div class="form-group">
+               <label>Gender</label>
+               <select class="form-control" name="gender">
+                  <option>Select Gender</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Others</option>
+               </select>
+             </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+             <div class="form-group">
+               <label>Course</label>
+               <select class="form-control" name="course_id">
+                 <option>Select Course</option>
+                 {% if courses %}
+                 {% for i in courses %}
+                  <option value="{{i.id}}">{{i.course_name}}</option>
+                 {% endfor %}
+                 {% endif %}
+               </select>
+             </div>
+            </div>
+            <div class="col-12 col-sm-6">
+             <div class="form-group">
+               <label>Session</label>
+               <select class="form-control" name="session_year_id">
+                 <option>Select Seesion</option>
+                 {% if session_years %}
+                 {% for i in session_years %}
+                  <option value="{{i.id}}">{{i.session_start}} - {{i.session_end}}</option>
+                 {% endfor %}
+                 {% endif %}
+               </select>
+             </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows='5' name="address" required>{% for i in students %}{{i.address}}{% endfor %}</textarea>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Update Student
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

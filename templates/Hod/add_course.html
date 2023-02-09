@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        {% include 'includes/alert.html' %}
+
+        <form action="{% url 'add_course' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <h5 class="form-title mb-0">
+                <span class="text-primary">Add Course</span>
+              </h5>
+              <ul class="breadcrumb bg-white p-0 mb-5">
+                 <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                 <li class="breadcrumb-item active">Add Course</li>
+              </ul>
+            </div>
+            <div class="col-auto text-right float-right ml-auto">
+              <a href="{% url 'view_course' %}" class="btn btn-outline-primary mr-2"><i class="fas fa-arrow-left"></i> Back</a>
+              <a href="{% url 'view_course' %}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Course Name</label>
+                <input type="text" class="form-control" name="course_name" placeholder="Course Name" required/>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Add Course
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
