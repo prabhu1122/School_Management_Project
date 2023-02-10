@@ -105,19 +105,28 @@ pkg install git
 
 <kbd>or</kbd> just make a directory,
 
-***Example:***```mkdir test```
+***Example:***
+```
+mkdir test
+```
 
 go to dir test 
 
-```cd test```
+```
+cd test
+```
 
 **initialise your git file**
 
-```git init```
+```
+git init
+```
 
 you can check you <kbd>.git</kbd> dir by typing
 
-```ls -a```
+```
+ls -a
+```
 
 ### For New repository
 
@@ -151,19 +160,18 @@ ssh-keygen
 ```
 following result will show 
 
-```
 > Generating public/private rsa key pair.
 > Enter file in which to save the key (/data/data/
 > com.termux/files/home/.ssh/id_rsa):
-```
- if you want to save this key to any specific location then 
- type that location othervise click <kbd>Enter</kbd> it will create at default
- folder in <kbd>~/.ssh</kbd>
-```
+
+if you want to save this key to any specific location then 
+type that location othervise click <kbd>Enter</kbd> it will create at default
+folder in <kbd>~/.ssh</kbd>
+
 > Enter passphrase (empty for no passphrase): [Type a passphrase]
-> Enter same passphrase again: [Type passphrase again]
-```
+> Enter same passphrase again: [Type passphrase again]```
 its up to you if you want and security key during push, pull or any task
+
 
 **Tips:** Public key generated walahhhhhhhhh
 
