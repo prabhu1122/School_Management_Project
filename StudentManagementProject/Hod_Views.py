@@ -107,7 +107,7 @@ def update_student(request):
             user.last_name = l_name
             user.username = username
             user.email = email
-            if password is not None or password != "":
+            if password is not None or password is not "":
                 user.set_password = password
             user.save()
 
