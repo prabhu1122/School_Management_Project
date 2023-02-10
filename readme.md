@@ -115,18 +115,21 @@ go to dir test
 ```
 cd test
 ```
+![add_image](static/assets/img/make_dir.jpg)
 
 **initialise your git file**
 
 ```
 git init
 ```
+![add_image](static/assets/img/initialize_git.jpg)
 
 you can check you <kbd>.git</kbd> dir by typing
 
 ```
 ls -a
 ```
+![add_image](static/assets/img/show_ssh.jpg)
 
 ### For New repository
 
@@ -204,6 +207,8 @@ or skip above both cmd and type
 ```
 cat ~/.ssh/id_rsa.pub
 ```
+![add_image](static/assets/img/public_key.jpg)
+
 copy the entire above <kbd>publickey</kbd>
 
 
