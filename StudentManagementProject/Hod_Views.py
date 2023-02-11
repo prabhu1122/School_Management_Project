@@ -1,4 +1,3 @@
-import errno
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -111,7 +110,6 @@ def update_student(request):
                 user.profile_Pic = profile_pic
             if password is not None or password is not "":
                 user.set_password = password
-
             user.save()
 
             student = Student.objects.get(admin=student_id)

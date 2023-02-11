@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
 
 
 class Course(models.Model):
+    objects = None
     course_name = models.CharField(max_length=100)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
@@ -24,6 +25,7 @@ class Course(models.Model):
 
 
 class SessionYear(models.Model):
+    objects = None
     session_start = models.CharField(max_length=50)
     session_end = models.CharField(max_length=50)
 
@@ -33,6 +35,7 @@ class SessionYear(models.Model):
 
 class Student(models.Model):
     #it will delete the (Student) from admin as well as from students Model
+    objects = None
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     address = models.TextField()
     gender = models.CharField(max_length=100)
