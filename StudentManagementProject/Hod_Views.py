@@ -142,16 +142,16 @@ def delete_student(request, admin):
 @login_required(login_url='/')
 def add_course(request):
     if request.method == "POST":
-        course = request.POST.get('course_name')
-        if Course.objects.filter(course_name=course).exists():
+        course_add = request.POST.get('course_name')
+        if Course.objects.filter(course_name=course_add).exists():
             messages.warning(request, "Course already exits!!!")
             return redirect("add_course")
         else:
             course = Course(
-                course_name=course
+                course_name=course_add
             )
             course.save()
-            messages.success(request, "course added successfully")
+            messages.success(request, course_add + " course added successfully")
     return render(request, 'Hod/add_course.html')
 
 
@@ -189,8 +189,7 @@ def update_course(request):
 
 def delete_course(request, id):
     course = Course.objects.get(id=id)
-    print(course)
     course.delete()
-    messages.success(request, "Course deleted successfully")
+    messages.success(request, " course deleted successfully")
     return redirect('view_course')
 
