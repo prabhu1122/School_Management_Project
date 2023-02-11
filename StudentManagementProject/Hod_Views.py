@@ -190,6 +190,6 @@ def update_course(request):
 def delete_course(request, id):
     course = Course.objects.get(id=id)
     course.delete()
-    messages.success(request, " course deleted successfully")
+    messages.success(request, "Course deleted successfully")
     return redirect('view_course')
 
