@@ -1,9 +1,12 @@
 # School_Management_System
-![NPM Issues](https://img.shields.io/github/issues/prabhu1122/Widgets_p5js?style=plastic&logo=appveyor)
-![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logo=appveyor)
-![NPM Django](https://img.shields.io/badge/Django-V4.0-yellowgreen?style=plastic&logo=appveyor)
-![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=appveyor)
+[![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logo=appveyor)](#https://www.python.org/downloads/)
+[![NPM Django](https://img.shields.io/badge/Django-V4.1.5-cyan?style=plastic&logo=appveyor)](#https://www.djangoproject.com/download/)
+![NPM pip](https://img.shields.io/badge/pip-V23.0-blue?style=plastic&logo=appveyor)
+![NPM Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
+![NPM SQLparser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor)
+![NPM tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
 
+![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=appveyor)
 [![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg)](https://github.com/prabhu1122/School_Management_Project/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
 [![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
@@ -42,7 +45,7 @@ and go to the link [click here](https://github.com/prabhu1122/School_Management_
 to download requirements just type following command in your cmd terminal
 
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ## Package Required
@@ -61,13 +64,13 @@ pip install -r requirements.txt
   
 
 ```
-pip install wheel
+$ pip install wheel
 ```
 
 Then install the libjpeg-turbo package.
 
 ```
-pkg install libjpeg-turbo
+$ pkg install libjpeg-turbo
 ```
 
 And now install Pillow with:
@@ -75,7 +78,7 @@ And now install Pillow with:
 LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"
 
 ```
-pip install Pillow
+$ pip install Pillow
 ```
   
 ### Setup Git on Termux
@@ -83,22 +86,22 @@ Install [Termux](https://termux.com/), launch and update it.
 
 **Update**
 ```
-pkg update && pkg upgrade
+$ pkg update && pkg upgrade
 ```
 #### Setup External Storage
 Create a storage directory to access other areas of the device.
 ```
-termux-setup-storage
+$ termux-setup-storage
 ```
 
 #### Install Python
 ```
-pkg install python
+$ pkg install python
 ```
 
 #### Install Git
 ```
-pkg install git
+$ pkg install git
 ```
 
 **Note:** Go to desired folder which you wants to push/upload to your github accounts
@@ -107,45 +110,45 @@ pkg install git
 
 ***Example:***
 ```
-mkdir test
+$ mkdir test
 ```
 
 go to dir test 
 
 ```
-cd test
+$ cd test
 ```
 ![add_image](static/assets/img/make_dir.jpg)
 
 **initialise your git file**
 
 ```
-git init
+$ git init
 ```
 ![add_image](static/assets/img/initialize_git.jpg)
 
 you can check you <kbd>.git</kbd> dir by typing
 
 ```
-ls -a
+$ ls -a
 ```
 ![add_image](static/assets/img/show_ssh.jpg)
 
 ### For New repository
 
 ```
-git add . or git add -A
-git commit -m "first git branch -M main
-git remote add origin git@gith
-git push -u origin main
+$ git add . or git add -A
+$ git commit -m "first git branch -M main
+$ git remote add origin git@gith
+$ git push -u origin main
 ```
 
 ### Existing repository
 
 ```
-git remote add origin git@gith
-git branch -M main
-git push u origin main
+$ git remote add origin git@gith
+$ git branch -M main
+$ git push u origin main
 ```
 
 
@@ -157,9 +160,9 @@ Using the SSH protocol, you can connect and authenticate to remote servers and s
 ### Get Started
 Open terminal and copy & past the following code
 
-***generate ssh ket***
+***generate ssh-key***
 ```
-ssh-keygen
+$ ssh-keygen
 ```
 following result will show 
 
@@ -182,30 +185,30 @@ its up to you if you want and security key during push, pull or any task
 
 **start ssh-agent**
 ```
-eval "$(ssh-agent -s)"
+$ eval "$(ssh-agent -s)"
 
-result >Agent pid 32276
+>result >Agent pid 32276
 ```
 **add sshkey to agent**
 
 ```
-ssh-add ~/.ssh/<key_name>
+$ ssh-add ~/.ssh/<key_name>
 ```
 
 ##### next
  to check your public key go to your ~/.ssh dir
 ```
-cd ~/.ssh && ls
+$ cd ~/.ssh && ls
 ```
 then type
 
 ```
-cat id_rsa.pub
+$ cat id_rsa.pub
 ```
 
 or skip above both cmd and type 
 ```
-cat ~/.ssh/id_rsa.pub
+$ cat ~/.ssh/id_rsa.pub
 ```
 ![add_image](static/assets/img/public_key.jpg)
 
@@ -244,7 +247,7 @@ Click **Add SSH key**.
 
 ### Testing your SSH connection
 ```
-ssh -T git@github.com
+$ ssh -T git@github.com
 ```
 Success result
 ```
