@@ -74,12 +74,12 @@ def view_student(request):
 @login_required(login_url='/')
 def edit_student(request, id):
     course = Course.objects.all()
-    session = SessionYear.objects.all()
+    sessions = SessionYear.objects.all()
     student = Student.objects.filter(id=id)
     context = {
         'students': student,
         'courses': course,
-        'session_years': session,
+        'session_years': sessions,
     }
     return render(request, 'Hod/edit_student.html', context)
 
@@ -101,17 +101,21 @@ def update_student(request):
             address = request.POST.get('address')
 
             user = CustomUser.objects.get(id=student_id)
-            if password is not None:
-                user.profile_Pic = profile_pic
+
             user.first_name = f_name
             user.last_name = l_name
             user.username = username
             user.email = email
+
+            if profile_pic is not None:
+                user.profile_Pic = profile_pic
             if password is not None or password is not "":
                 user.set_password = password
+
             user.save()
 
             student = Student.objects.get(admin=student_id)
+            student.admin = user
             student.gender = gender
             student.address = address
 
@@ -126,7 +130,7 @@ def update_student(request):
             return redirect('view_student')
     except:
         messages.error(request, "Something went wronged !!!")
-    return render(request, 'Hod/edit_student.html')
+        return render(request, 'Hod/edit_student.html')
 
 
 @login_required(login_url='/')
@@ -141,11 +145,15 @@ def delete_student(request, admin):
 def add_course(request):
     if request.method == "POST":
         course = request.POST.get('course_name')
-        course = Course(
-            course_name=course
-        )
-        course.save()
-        messages.success(request, "course added successfully")
+        if Course.objects.filter(course_name=course).exists():
+            messages.warning(request, "Course already exits!!!")
+            return redirect("add_course")
+        else:
+            course = Course(
+                course_name=course
+            )
+            course.save()
+            messages.success(request, "course added successfully")
     return render(request, 'Hod/add_course.html')
 
 
@@ -183,6 +191,7 @@ def update_course(request):
 
 def delete_course(request, id):
     course = Course.objects.get(id=id)
+    print(course)
     course.delete()
     messages.success(request, "Course deleted successfully")
     return redirect('view_course')

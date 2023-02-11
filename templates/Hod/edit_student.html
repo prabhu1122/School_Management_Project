@@ -76,12 +76,10 @@
              <div class="form-group">
                <label>Course</label>
                <select class="form-control" name="course_id">
-                 <option>Select Course</option>
-                 {% if courses %}
+                 <option value="0">Select Course</option>
                  {% for i in courses %}
                   <option value="{{i.id}}">{{i.course_name}}</option>
                  {% endfor %}
-                 {% endif %}
                </select>
              </div>
             </div>
@@ -89,12 +87,10 @@
              <div class="form-group">
                <label>Session</label>
                <select class="form-control" name="session_year_id">
-                 <option>Select Seesion</option>
-                 {% if session_years %}
+                 <option value="0">Select Session</option>
                  {% for i in session_years %}
                   <option value="{{i.id}}">{{i.session_start}} - {{i.session_end}}</option>
                  {% endfor %}
-                 {% endif %}
                </select>
              </div>
             </div>
