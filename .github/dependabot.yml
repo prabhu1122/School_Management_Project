@@ -5,7 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "Django" # See documentation for possible values
-    directory: "/venv/Lib/site-packages/" # Location of package manifests
+  - package-ecosystem: "django" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    open-pull-requests-limit: 0
