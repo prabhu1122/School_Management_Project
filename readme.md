@@ -73,7 +73,7 @@ Then install the libjpeg-turbo package.
 $ pkg install libjpeg-turbo
 ```
 
-And now install Pillow with:
+And now install Pillow:
 
 LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"
 
