@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from . import views, Hod_Views, Staff_Views, Student_Views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('base', views.base, name='base'),
 
     #login url
@@ -22,6 +22,9 @@ urlpatterns = [
     path('Hod/Student/edit/<str:id>', Hod_Views.edit_student, name='edit_student'),
     path('Hod/Student/update', Hod_Views.update_student, name='update_student'),
     path('Hod/Student/delete/<str:admin>', Hod_Views.delete_student, name='delete_student'),
+
+    path('Hod/Staff/add', Hod_Views.add_staff, name='add_staff'),
+    path('Hod/Staff/view', Hod_Views.view_staff, name='view_staff'),
 
     #hod course add
     path('Hod/Course/add', Hod_Views.add_course, name='add_course'),

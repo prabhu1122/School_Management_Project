@@ -5,8 +5,8 @@
 ![NPM Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
 ![NPM SQLparser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor)
 ![NPM tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
-![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=appveyor)
 
+![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=appveyor)
 [![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg)](https://github.com/prabhu1122/School_Management_Project/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
 [![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
@@ -52,11 +52,11 @@ $ pip install -r requirements.txt
 
 ### List
 
-  `asgiref==3.6.0`              
-  `Django==4.1.5`             
-  `Pillow==9.1.5`              
-  `sqlparse==0.4.3`             
-  `tzdata==2022.7`             
+ * `asgiref==3.6.0`
+ * `Django==4.1.5`
+ * `Pillow==9.1.5`
+ * `sqlparse==0.4.3`              
+ * `tzdata==2022.7`             
 
 ### Install pillow
 
@@ -154,7 +154,7 @@ $ git push u origin main
 
 ## Setup SSH publickey
 
-### About
+### About [SSH](#https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
 Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit. You can also use an SSH key to sign commits.
 
 ### Get Started
@@ -172,41 +172,43 @@ following result will show
 
 if you want to save this key to any specific location then 
 type that location othervise click <kbd>Enter</kbd> it will create at default
-folder in <kbd>~/.ssh</kbd>
+folder location <kbd>~/.ssh</kbd>
 
 > Enter passphrase (empty for no passphrase): [Type a passphrase]
-> Enter same passphrase again: [Type passphrase again]```
+> Enter same passphrase again: [Type passphrase again] 
+
 its up to you if you want and security key during push, pull or any task
 
 
-**Tips:** Public key generated walahhhhhhhhh
+**Tips:** Public key generated wallllaaaahhh
 
 ### Add to ssh-Agent
 
 **start ssh-agent**
 ```
 $ eval "$(ssh-agent -s)"
-
->result >Agent pid 32276
 ```
-**add sshkey to agent**
+>Agent pid 32276
+
+**add _ssh-publickey_ to agent**
 
 ```
 $ ssh-add ~/.ssh/<key_name>
 ```
 
-##### next
- to check your public key go to your ~/.ssh dir
+**next**
+
+ to check your public key go to your ~/.ssh dir by type 
 ```
 $ cd ~/.ssh && ls
 ```
-then type
+then type to open file to copy the public key
 
 ```
 $ cat id_rsa.pub
 ```
 
-or skip above both cmd and type 
+or skip above both cmd and just type 
 ```
 $ cat ~/.ssh/id_rsa.pub
 ```
@@ -215,7 +217,7 @@ $ cat ~/.ssh/id_rsa.pub
 copy the entire above <kbd>publickey</kbd>
 
 
-### Add sshkey To Github
+### Add sshkey To Git_hub
 
 In the upper-right corner of any page, click your profile photo, then click Settings.
 

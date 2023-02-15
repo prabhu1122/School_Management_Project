@@ -8,26 +8,27 @@
         <li class="submenu active">
         <li>
           {% if user.user_type == '1' %}
-            <a href="{% url 'hod_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
+          <a href="{% url 'hod_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
           {% elif user.user_type == '2' %}
-            <a href="{% url 'staff_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
+          <a href="{% url 'staff_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
           {% else %}
-            <a href="{% url 'student_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
-        {% endif %}
+          <a href="{% url 'student_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
+          {% endif %}
         </li>
         </li>
 
         <li class="submenu">
-          <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff </span> <span class="menu-arrow"></span></a>
+          <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff </span> <span
+              class="menu-arrow"></span></a>
           <ul>
-            <li><a href="teacher-details.html">Staff View</a></li>
-            <li><a href="add-teacher.html">Staff Add</a></li>
-            <li><a href="edit-teacher.html">Staff Edit</a></li>
+            <li><a href="{% url 'view_staff' %}">View Staff</a></li>
+            <li><a href="{% url 'add_staff' %}">Add Staff</a></li>
           </ul>
         </li>
 
         <li class="submenu">
-          <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
+          <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span
+              class="menu-arrow"></span></a>
           <ul>
             <li><a href="{% url 'view_student' %}">View Student</a></li>
             <li><a href="{% url 'add_student' %}">Add Student</a></li>
@@ -35,14 +36,16 @@
         </li>
 
         <li class="submenu">
-          <a href="#"><i class="fa fa-graduation-cap"></i><span> Courses</span> <span class="menu-arrow"></span></a>
+          <a href="#"><i class="fa fa-graduation-cap"></i><span> Courses</span> <span
+              class="menu-arrow"></span></a>
           <ul>
             <li><a href="{% url 'view_course' %}">Courses Views</a></li>
             <li><a href="{% url 'add_course' %}">Courses Add</a></li>
           </ul>
         </li>
         <li class="submenu">
-          <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+          <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span
+              class="menu-arrow"></span></a>
           <ul>
             <li><a href="subjects.html">Subject List</a></li>
             <li><a href="add-subject.html">Subject Add</a></li>
@@ -67,7 +70,8 @@
         </li>
 
         <li class="submenu">
-          <a href="#"><i class="fa fa-comments"></i><span> Feedback</span> <span class="menu-arrow"></span></a>
+          <a href="#"><i class="fa fa-comments"></i><span> Feedback</span> <span
+              class="menu-arrow"></span></a>
           <ul>
             <li><a href="departments.html">Staff Feedback</a></li>
             <li><a href="add-department.html">Student Feedback</a></li>
