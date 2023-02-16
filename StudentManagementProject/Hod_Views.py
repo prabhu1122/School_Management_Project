@@ -94,8 +94,8 @@ def update_student(request):
       email = request.POST.get('email')
       password = request.POST.get('password')
       gender = request.POST.get('gender')
-      course = request.POST.get('course_id')
-      session = request.POST.get('session_year_id')
+      course_id = request.POST.get('course_id')
+      session_id = request.POST.get('session_year_id')
       address = request.POST.get('address')
       
       user = CustomUser.objects.get(id=student_id)
@@ -116,10 +116,10 @@ def update_student(request):
       student.gender = gender
       student.address = address
       
-      course_update_id = Course.objects.get(id=course)
+      course_update_id = Course.objects.get(id=course_id)
       student.course_id = course_update_id
       
-      session_update_id = SessionYear.objects.get(id=session)
+      session_update_id = SessionYear.objects.get(id=session_id)
       student.session_year_id = session_update_id
       
       student.save()
@@ -236,3 +236,60 @@ def view_staff(request):
     'staffs': staff,
   }
   return render(request, 'Hod/view_staff.html', context)
+
+
+def edit_staff(request, id):
+  staff = Staff.objects.get(id=id)
+  context = {
+    "id": staff.admin.id,
+    "username": staff.admin.username,
+    "first_name": staff.admin.first_name,
+    "last_name": staff.admin.last_name,
+    "email": staff.admin.email,
+    "gender": staff.gender,
+    "address": staff.address,
+  }
+  return render(request, "Hod/edit_staff.html", context)
+
+
+def update_staff(request):
+  if request.method == "POST":
+    profile_pic = request.FILES.get("profile_pic")
+    staff_id = request.POST.get("staff_id")
+    f_name = request.POST.get("f_name")
+    l_name = request.POST.get("l_name")
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    email = request.POST.get("email")
+    gender = request.POST.get("gender")
+    address = request.POST.get("address")
+    print(staff_id)
+    user = CustomUser.objects.get(id=staff_id)
+    
+    user.first_name = f_name
+    user.last_name = l_name
+    user.email = email
+    user.username = username
+    
+    if profile_pic is not None:
+      user.profile_Pic = profile_pic
+    
+    if password is not "" or password is not None:
+      user.set_password(password)
+    user.save()
+    
+    staff = Staff.objects.get(admin=staff_id)
+    staff.gender = gender
+    staff.address = address
+    staff.save()
+    messages.success(request, "Success")
+    return redirect('view_staff')
+  else:
+    messages.error(request, "Error")
+    return redirect('edit_staff')
+
+
+def delete_staff(request, id):
+  user_staff = CustomUser.objects.get(id=id)
+  user_staff.delete()
+  return redirect('view_staff')

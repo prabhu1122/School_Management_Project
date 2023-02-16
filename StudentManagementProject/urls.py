@@ -25,6 +25,9 @@ urlpatterns = [
 
     path('Hod/Staff/add', Hod_Views.add_staff, name='add_staff'),
     path('Hod/Staff/view', Hod_Views.view_staff, name='view_staff'),
+    path('Hod/Staff/edit/<str:id>', Hod_Views.edit_staff, name='edit_staff'),
+    path('Hod/Staff/update', Hod_Views.update_staff, name='update_staff'),
+    path('Hod/Staff/delete/<str:id>', Hod_Views.delete_staff, name='delete_staff'),
 
     #hod course add
     path('Hod/Course/add', Hod_Views.add_course, name='add_course'),
