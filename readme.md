@@ -13,6 +13,8 @@ ___
 [![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logo=appveyor)](https://www.python.org/downloads/)
 [![NPM Django](https://img.shields.io/badge/Django-V4.1.5-cyan?style=plastic&logo=appveyor)](https://www.djangoproject.com/download/)
 ![NPM pip](https://img.shields.io/badge/pip-V23.0-blue?style=plastic&logo=appveyor)
+![NPM License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 ![NPM Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
 ![NPM SQLparser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor)
 ![NPM tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
