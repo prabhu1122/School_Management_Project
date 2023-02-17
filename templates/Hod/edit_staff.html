@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        {% include 'includes/alert.html' %}
+
+        <form action="{% url 'update_staff' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <h5 class="form-title">
+                <span class="text-success">Edit Staff</span>
+              </h5>
+              <div class="col-auto text-right float-right ml-auto">
+                <a href="{% url 'view_staff' %}" class="btn btn-outline-primary mr-2"><i class="fas fa-arrow-left"></i>
+                  Back</a>
+                <a href="{% url 'view_staff' %}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Profile Pic</label>
+                <input type="file" class="form-control" name="profile_pic"/>
+                <input type="text" class="form-control" name="staff_id"
+                       value="{{ id }}" hidden/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="f_name" placeholder="First Name" value="{{first_name}}"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="l_name" placeholder="Last Name"
+                       value="{{last_name}}"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" name="username" placeholder="Username"
+                       value="{{username}}" required/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password"
+                       placeholder="Only in case to change your password"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Email"
+                       value="{{email}}"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Gender</label>
+                <select class="form-control" name="gender" required>
+                  <option>__Select Gender__</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Others</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows='5' name="address" required>{{address}}</textarea>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Update Staff
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

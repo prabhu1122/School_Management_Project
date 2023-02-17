@@ -1,15 +1,36 @@
 # School_Management_System
+
 [![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logoColor=yellow&logo=python)](https://www.python.org/downloads/)
 [![NPM Django](https://img.shields.io/badge/Django-V4.1.5-gree?style=plastic&logoColor=cyan&logo=django)](https://www.djangoproject.com/download/)
+
+___
+![Github commit](https://img.shields.io/github/last-commit/prabhu1122/School_Management_Project/main?color=gree&label=Last%20commit&logo=github&style=plastic)
+![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=appveyor)
+[![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg)](https://github.com/prabhu1122/School_Management_Project/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
+[![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=blue)](https://github.com/prabhu1122/School_Management_Project/network)
+![Twitter follow](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FPrabhat84684469&logo=twitter&style=plastic)
+
+___
+## Requirements:
+
+[![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logo=appveyor)](https://www.python.org/downloads/)
+[![NPM Django](https://img.shields.io/badge/Django-V4.1.5-cyan?style=plastic&logo=appveyor)](https://www.djangoproject.com/download/)
+
 ![NPM pip](https://img.shields.io/badge/pip-V23.0-blue?style=plastic&logo=appveyor)
+![NPM License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 ![NPM Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
 ![NPM SQLparser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor)
 ![NPM tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
+
 
 ![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=github)
 [![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg?color=green&logo=github)](https://github.com/prabhu1122/School_Management_Project/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
 [![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=orange&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
+
+
 
 **This project is made for the purpose to manage any school or coaching based system.**
 
