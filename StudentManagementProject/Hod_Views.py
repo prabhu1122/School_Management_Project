@@ -126,8 +126,9 @@ def update_student(request):
       messages.success(request, user.first_name + " " + user.last_name + "'s data updated successfully")
       return redirect('view_student')
   except:
-    messages.error(request, "Something went wronged !!!")
-    return render(request, 'Hod/edit_student.html')
+    messages.error(request, "Something went wronge")
+    return redirect('edit_student')
+  return render(request, 'Hod/view_student.html')
 
 
 @login_required(login_url='/')

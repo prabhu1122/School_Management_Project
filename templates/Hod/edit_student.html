@@ -63,8 +63,7 @@
             <div class="col-12 col-sm-6">
              <div class="form-group">
                <label>Gender</label>
-               <select class="form-control" name="gender">
-                  <option>Select Gender</option>
+               <select class="form-control" name="gender" required>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                   <option value="Other">Others</option>
@@ -75,8 +74,7 @@
             <div class="col-12 col-sm-6">
              <div class="form-group">
                <label>Course</label>
-               <select class="form-control" name="course_id">
-                 <option value="0">Select Course</option>
+               <select class="form-control" name="course_id" required>
                  {% for i in courses %}
                   <option value="{{i.id}}">{{i.course_name}}</option>
                  {% endfor %}
@@ -86,8 +84,7 @@
             <div class="col-12 col-sm-6">
              <div class="form-group">
                <label>Session</label>
-               <select class="form-control" name="session_year_id">
-                 <option value="0">Select Session</option>
+               <select class="form-control" name="session_year_id" required>
                  {% for i in session_years %}
                   <option value="{{i.id}}">{{i.session_start}} - {{i.session_end}}</option>
                  {% endfor %}

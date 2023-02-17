@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
 {% block content %}
     {% if students %}
         {% for student in students %}
-            <h4>Hello {{student}}</h4><br/>
+            <h4>Hello {{student.admin.username}}</h4><br/>
+            <h6>Hello {{student.admin.first_name}}&nbsp;{{student.admin.last_name}}</h6><br/>
             <h6>Gender: {{student.gender}}</h6><br/>
             <h6>Course: {{student.course_id}}</h6><br/>
             <h6>Session: {{student.session_year_id}}</h6><br/>
