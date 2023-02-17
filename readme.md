@@ -1,24 +1,26 @@
 # School_Management_System
 
-[![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=github)](https://github.com/prabhu1122?tab=followers)
-[![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg?color=green&logo=github)](https://github.com/prabhu1122?tab=stars)
-[![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
-[![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=orange&logo=github)](https://github.com/prabhu1122/School_Management_Project/graphs/contributors)
-![Github commit](https://img.shields.io/github/last-commit/prabhu1122/School_Management_Project/main?color=gree&label=Last%20commit&logo=github&style=plastic)
+[![NPM GitHub](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=github)](https://github.com/prabhu1122?tab=followers)
+[![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg?style=plastic&color=green&logo=github)](https://github.com/prabhu1122?tab=stars)
+[![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?style=plastic&color=blue&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
+[![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?style=plastic&color=orange&logo=github)](https://github.com/prabhu1122/School_Management_Project/graphs/contributors)
+
 ![Twitter follow](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FPrabhat84684469&logo=twitter&style=plastic)
 
 ___
 ## Requirements:
 
-[![NPM Python](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logoColor=yellow&logo=python)](https://www.python.org/downloads/)
-[![NPM Django](https://img.shields.io/badge/Django-V4.1.5-gree?style=plastic&logoColor=cyan&logo=django)](https://www.djangoproject.com/download/)
+[![Python Version](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logoColor=yellow&logo=python)](https://www.python.org/downloads/)
+[![Django Version](https://img.shields.io/badge/Django-V4.1.5-gree?style=plastic&logoColor=cyan&logo=django)](https://www.djangoproject.com/download/)
+![HTML](https://img.shields.io/badge/Html-V5.0-orange?style=plastic&logo=html5)
+![CSS](https://img.shields.io/badge/CSS-V5.0-skyblue?style=plastic&logo=css3)
 
-![NPM pip](https://img.shields.io/badge/pip-V23.0-blue?style=plastic&logo=appveyor)
-![NPM License](https://img.shields.io/badge/License-MIT-blue.svg)
+![MIT License](https://img.shields.io/github/license/prabhu1122/School_Management_Project.svg?style=plastic&logoColor=red&logo=mit)
 
-![NPM Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
-![NPM SQLparser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor)
-![NPM tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
+![pip](https://img.shields.io/badge/pip-V23.0-blue?style=plastic&logo=appveyor)
+![Pillow](https://img.shields.io/badge/Pillow-V9.4.0-yellowgreen?style=plastic&logo=appveyor)
+![SQL_parser](https://img.shields.io/badge/sqlparse-0.4.3-bluegreen?style=plastic&logo=appveyor&logoColor=skyblue)
+![tzdata](https://img.shields.io/badge/tzdata-2022.7-green?style=plastic&logo=appveyor)
 
 
 
@@ -39,13 +41,13 @@ ___
    3. [For New repository](#for-new-repository)
    4. [Existing repository](#existing-repository)
 4. [Setup SSH publickey](#setup-ssh-publickey)
-   1. [About](#about)
+   1. [About Shh](#about-ssh)
    2. [Get Started](#get-started)
    3. [Add to ssh-Agent](#Add-to-ssh-agent)
    4. [Add key To Github](#Add-key-To-Github)
    5. [Testing your SSH connection](#Testing-your-SSH-connection)
 
-## About_Projects
+## About Projects
 This project is made for the purpose to manage any school or coaching based system
 
 ### How to install
@@ -167,7 +169,7 @@ $ git push u origin main
 
 ## Setup SSH publickey
 
-### About [SSH](#https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
+### About [SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh)
 Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit. You can also use an SSH key to sign commits.
 
 ### Get Started
@@ -230,7 +232,7 @@ $ cat ~/.ssh/id_rsa.pub
 copy the entire above <kbd>publickey</kbd>
 
 
-### Add sshkey To Git_hub
+### Add key To Github
 
 In the upper-right corner of any page, click your profile photo, then click Settings.
 
@@ -272,4 +274,4 @@ Success result
 
 **Note:** If you are using an aarch64 device, set the LDFLAGS flag to "-L/system/lib64/"
 
-![Github satrs](https://github-readme-stats.vercel.app/api?username=prabhu1122)
+![Github satrs](https://starchart.cc/prabhu1122/School_Management_Project.svg)
