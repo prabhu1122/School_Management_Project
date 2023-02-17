@@ -1,9 +1,9 @@
 # School_Management_System
 
-![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=github)
-[![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg?color=green&logo=github)](https://github.com/prabhu1122/School_Management_Project/stargazers)
+[![NPM Github](https://img.shields.io/github/followers/prabhu1122?style=plastic&logo=github)](https://github.com/prabhu1122?tab=followers)
+[![GitHub stars](https://img.shields.io/github/stars/prabhu1122/School_Management_Project.svg?color=green&logo=github)](https://github.com/prabhu1122?tab=stars)
 [![GitHub forks](https://img.shields.io/github/forks/prabhu1122/School_Management_Project.svg?color=blue&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
-[![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=orange&logo=github)](https://github.com/prabhu1122/School_Management_Project/network)
+[![GitHub contributors](https://img.shields.io/github/contributors/prabhu1122/School_Management_Project.svg?color=orange&logo=github)](https://github.com/prabhu1122/School_Management_Project/graphs/contributors)
 ![Github commit](https://img.shields.io/github/last-commit/prabhu1122/School_Management_Project/main?color=gree&label=Last%20commit&logo=github&style=plastic)
 ![Twitter follow](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FPrabhat84684469&logo=twitter&style=plastic)
 
