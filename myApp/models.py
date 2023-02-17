@@ -59,3 +59,15 @@ class Staff(models.Model):
   
   def __str__(self):
     return self.admin.first_name + " " + self.admin.last_name
+
+
+class Subject(models.Model):
+  objects = None
+  subject_name = models.CharField(max_length=100)
+  course = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
+  staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return self.subject_name

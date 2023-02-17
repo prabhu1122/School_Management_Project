@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        {% include 'includes/alert.html' %}
+
+        <form action="{% url 'add_subject' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row d-flex justify-content-center">
+            <div class="col-9">
+              <h5 class="form-title m-0">
+                <span class="text-primary">Add Subject</span>
+              </h5>
+              <ul class="breadcrumb bg-white">
+                <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Add Subject</li>
+              </ul>
+            </div>
+            <div class="col-3 d-flex justify-content-end p-2 align-items-center">
+              <a href="{% url 'view_subject' %}" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i> Back</a>&nbsp;
+              <a href="{% url 'view_subject' %}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+            </div>
+            <hr style="height: 10px;">
+            <div class="row m-3 w-100">
+              <h5 class="form-title">
+                <span class="fs-6">Subject Information</span>
+              </h5>
+              <div class="col-6 m-0">
+                <div class="form-group">
+                  <label>Subject Name</label>
+                  <input type="text" class="form-control" name="subject_name" placeholder="subject Name" required/>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Course</label>
+                  <select class="form-control" name="course_id" required>
+                    <option>__Select Course__</option>
+                    {% if courses %}
+                    {% for i in courses %}
+                    <option value="{{i.id}}">{{i.course_name}}</option>
+                    {% endfor %}
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Staff</label>
+                  <select class="form-control" name="staff_id" required>
+                    <option>__Select Staff__</option>
+                    {% if staffs %}
+                    {% for i in staffs %}
+                    <option value="{{i.id}}">{{i.admin.first_name}}&nbsp;{{i.admin.last_name}}</option>
+                    {% endfor %}
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+              <div class=" col-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">
+                  Add Subject
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff
+from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject
 from django.contrib import messages
 
 
@@ -298,3 +298,49 @@ def delete_staff(request, id):
   user_staff = CustomUser.objects.get(id=id)
   user_staff.delete()
   return redirect('view_staff')
+
+
+@login_required(login_url='/')
+def add_subject(request):
+  staffs = Staff.objects.all()
+  courses = Course.objects.all()
+  
+  context = {
+    'staffs': staffs,
+    'courses': courses,
+  }
+  
+  if request.method == "POST":
+    subject_name = request.POST.get("subject_name")
+    staff_id = request.POST.get("staff_id")
+    course_id = request.POST.get("course_id")
+    
+    course = Course.objects.get(id=course_id)
+    staff = Staff.objects.get(id=staff_id)
+    
+    subject = Subject(
+      subject_name=subject_name,
+      course=course,
+      staff=staff,
+    )
+    subject.save()
+    messages.success(request, "success")
+    return redirect('view_subject')
+  
+  return render(request, 'Hod/add_subject.html', context)
+
+
+@login_required(login_url='/')
+def view_subject(request):
+  subject = Subject.objects.all()
+  context = {
+    "subjects": subject,
+  }
+  return render(request, 'Hod/view_subject.html', context)
+
+
+def delete_subject(request, id):
+  subject = Subject.objects.get(id=id)
+  subject.delete()
+  messages.success(request, "deleted")
+  return redirect('view_subject')
