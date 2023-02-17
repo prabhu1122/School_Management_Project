@@ -84,50 +84,46 @@ def edit_student(request, id):
 
 @login_required(login_url='/')
 def update_student(request):
-  try:
-    if request.method == "POST":
-      student_id = request.POST.get('student_id')
-      profile_pic = request.FILES.get('profile_pic')
-      f_name = request.POST.get('f_name')
-      l_name = request.POST.get('l_name')
-      username = request.POST.get('username')
-      email = request.POST.get('email')
-      password = request.POST.get('password')
-      gender = request.POST.get('gender')
-      course_id = request.POST.get('course_id')
-      session_id = request.POST.get('session_year_id')
-      address = request.POST.get('address')
-      
-      user = CustomUser.objects.get(id=student_id)
-      
-      user.first_name = f_name
-      user.last_name = l_name
-      user.username = username
-      user.email = email
-      
-      if profile_pic is not None:
-        user.profile_Pic = profile_pic
-      if password is not None or password is not "":
-        user.set_password = password
-      user.save()
-      
-      student = Student.objects.get(admin=student_id)
-      student.admin = user
-      student.gender = gender
-      student.address = address
-      
-      course_update_id = Course.objects.get(id=course_id)
-      student.course_id = course_update_id
-      
-      session_update_id = SessionYear.objects.get(id=session_id)
-      student.session_year_id = session_update_id
-      
-      student.save()
-      messages.success(request, user.first_name + " " + user.last_name + "'s data updated successfully")
-      return redirect('view_student')
-  except:
-    messages.error(request, "Something went wronge")
-    return redirect('edit_student')
+  if request.method == "POST":
+    student_id = request.POST.get('student_id')
+    profile_pic = request.FILES.get('profile_pic')
+    f_name = request.POST.get('f_name')
+    l_name = request.POST.get('l_name')
+    username = request.POST.get('username')
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    gender = request.POST.get('gender')
+    course_id = request.POST.get('course_id')
+    session_id = request.POST.get('session_year_id')
+    address = request.POST.get('address')
+    
+    user = CustomUser.objects.get(id=student_id)
+    
+    user.first_name = f_name
+    user.last_name = l_name
+    user.username = username
+    user.email = email
+    
+    if profile_pic is not None:
+      user.profile_Pic = profile_pic
+    if password is not None or password is not "":
+      user.set_password = password
+    user.save()
+    
+    student = Student.objects.get(admin=student_id)
+    student.admin = user
+    student.gender = gender
+    student.address = address
+    
+    course_update_id = Course.objects.get(id=course_id)
+    student.course_id = course_update_id
+    
+    session_update_id = SessionYear.objects.get(id=session_id)
+    student.session_year_id = session_update_id
+    
+    student.save()
+    messages.success(request, user.first_name + " " + user.last_name + "'s data updated successfully")
+    return redirect('view_student')
   return render(request, 'Hod/view_student.html')
 
 
@@ -164,6 +160,7 @@ def view_course(request):
   return render(request, "Hod/view_course.html", context)
 
 
+@login_required(login_url='/')
 def edit_course(request, id):
   course = Course.objects.get(id=id)
   context = {
@@ -172,6 +169,7 @@ def edit_course(request, id):
   return render(request, "Hod/edit_course.html", context)
 
 
+@login_required(login_url='/')
 def update_course(request):
   if request.method == "POST":
     course_edit = request.POST.get('course_name')
@@ -186,6 +184,7 @@ def update_course(request):
   return render(request, "Hod/edit_course.html")
 
 
+@login_required(login_url='/')
 def delete_course(request, id):
   course = Course.objects.get(id=id)
   course.delete()
@@ -193,6 +192,7 @@ def delete_course(request, id):
   return redirect('view_course')
 
 
+@login_required(login_url='/')
 def add_staff(request):
   if request.method == "POST":
     profile_pic = request.FILES.get("profile_pic")
@@ -231,6 +231,7 @@ def add_staff(request):
   return render(request, "Hod/add_staff.html")
 
 
+@login_required(login_url='/')
 def view_staff(request):
   staff = Staff.objects.all()
   context = {
@@ -239,6 +240,7 @@ def view_staff(request):
   return render(request, 'Hod/view_staff.html', context)
 
 
+@login_required(login_url='/')
 def edit_staff(request, id):
   staff = Staff.objects.get(id=id)
   context = {
@@ -253,6 +255,7 @@ def edit_staff(request, id):
   return render(request, "Hod/edit_staff.html", context)
 
 
+@login_required(login_url='/')
 def update_staff(request):
   if request.method == "POST":
     profile_pic = request.FILES.get("profile_pic")
@@ -290,6 +293,7 @@ def update_staff(request):
     return redirect('edit_staff')
 
 
+@login_required(login_url='/')
 def delete_staff(request, id):
   user_staff = CustomUser.objects.get(id=id)
   user_staff.delete()
