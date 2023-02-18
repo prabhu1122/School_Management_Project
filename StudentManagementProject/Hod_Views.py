@@ -226,7 +226,7 @@ def add_staff(request):
       address=address,
     )
     staff.save()
-    messages.success(request, "added")
+    messages.success(request, "Staff data added successfully")
     return redirect('add_staff')
   return render(request, "Hod/add_staff.html")
 
@@ -286,7 +286,7 @@ def update_staff(request):
     staff.gender = gender
     staff.address = address
     staff.save()
-    messages.success(request, "Success")
+    messages.success(request, "Staff data updated successfully")
     return redirect('view_staff')
   else:
     messages.error(request, "Error")
@@ -297,7 +297,7 @@ def update_staff(request):
 def delete_staff(request, id):
   user_staff = CustomUser.objects.get(id=id)
   user_staff.delete()
-  return redirect('view_staff')
+  return render(request, 'Hod/view_staff.html')
 
 
 @login_required(login_url='/')
@@ -324,7 +324,7 @@ def add_subject(request):
       staff=staff,
     )
     subject.save()
-    messages.success(request, "success")
+    messages.success(request, "Subject data added successfully")
     return redirect('view_subject')
   
   return render(request, 'Hod/add_subject.html', context)
@@ -339,8 +339,44 @@ def view_subject(request):
   return render(request, 'Hod/view_subject.html', context)
 
 
+@login_required(login_url='/')
+def edit_subject(request, id):
+  subject = Subject.objects.get(id=id)
+  course = Course.objects.all()
+  staff = Staff.objects.all()
+  context = {
+    "subjects": subject,
+    "courses": course,
+    "staffs": staff,
+  }
+  return render(request, 'Hod/edit_subject.html', context)
+
+
+@login_required(login_url='/')
+def update_subject(request):
+  if request.method == "POST":
+    subject_id = request.POST.get("subject_id")
+    subject_name = request.POST.get("subject_name")
+    staff_id = request.POST.get("staff_id")
+    course_id = request.POST.get("course_id")
+    
+    course = Course.objects.get(id=course_id)
+    subject = Subject.objects.get(id=subject_id)
+    staff = Staff.objects.get(id=staff_id)
+    
+    subject.subject_name = subject_name
+    subject.course = course
+    subject.staff = staff
+    
+    subject.save()
+    messages.success(request, "Subject data updated successfully")
+    return redirect('view_subject')
+  
+  return render(request, 'Hod/view_subject.html')
+
+
 def delete_subject(request, id):
   subject = Subject.objects.get(id=id)
   subject.delete()
-  messages.success(request, "deleted")
+  messages.success(request, "Subject data deleted successfully")
   return redirect('view_subject')
