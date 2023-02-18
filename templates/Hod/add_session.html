@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        {% include 'includes/alert.html' %}
+
+        <form action="{% url 'add_session' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <h5 class="form-title mb-0">
+                <span class="text-primary">Add Session</span>
+              </h5>
+              <ul class="breadcrumb bg-white p-0 mb-5">
+                <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Add Session</li>
+              </ul>
+            </div>
+            <div class="col-auto text-right float-right ml-auto">
+              <a href="{% url 'view_session' %}" class="btn btn-outline-primary mr-2"><i class="fas fa-arrow-left"></i>
+                Back</a>
+              <a href="{% url 'view_session' %}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+            </div>
+            <div class="container m-2 mb-4">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Session Start</label>
+                    <div class="input-group date" id="datePicker1">
+                      <input type="text" class="form-control" name="session_start" placeholder="Session Start"
+                             required/>
+                      <span class="input-group-append">
+                      <span class="input-group-text bg-light d-block">
+                        <i class="fa fa-calendar"></i>
+                      </span>
+                    </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Session End</label>
+                    <div class="input-group date" id="datePicker2">
+                      <input type="text" class="form-control" name="session_end" placeholder="Session End"
+                             required/>
+                      <span class="input-group-append">
+                      <span class="input-group-text bg-light d-block">
+                        <i class="fa fa-calendar"></i>
+                      </span>
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Add Session
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

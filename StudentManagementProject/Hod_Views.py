@@ -380,3 +380,64 @@ def delete_subject(request, id):
   subject.delete()
   messages.success(request, "Subject data deleted successfully")
   return redirect('view_subject')
+
+
+@login_required(login_url='/')
+def add_session(request):
+  if request.method == "POST":
+    session_start = request.POST.get('session_end')
+    session_end = request.POST.get('session_start')
+    
+    session = SessionYear(
+      session_start=session_start,
+      session_end=session_end,
+    )
+    session.save()
+    messages.success(request, "Success")
+    return redirect('add_session')
+  return render(request, "Hod/add_session.html")
+
+
+@login_required(login_url='/')
+def view_session(request):
+  session = SessionYear.objects.all()
+  context = {
+    "sessions": session
+  }
+  return render(request, 'Hod/view_session.html', context)
+
+
+@login_required(login_url='/')
+def edit_session(request, id):
+  session = SessionYear.objects.get(id=id)
+  context = {
+    "sessions": session,
+  }
+  return render(request, "Hod/edit_session.html", context)
+
+
+@login_required(login_url="/")
+def update_session(request):
+  if request.method == "POST":
+    session_id = request.POST.get('session_id')
+    session_start = request.POST.get('session_start')
+    session_end = request.POST.get('session_end')
+    
+    session = SessionYear.objects.get(id=session_id)
+    session.session_start = session_start
+    session.session_end = session_end
+    
+    session.save()
+    messages.success(request, "success")
+    return redirect('view_session')
+  return redirect('view_session')
+
+
+def delete_session(request, id):
+  try:
+    session = SessionYear.objects.get(id=id)
+    session.delete()
+    messages.success(request, "success")
+  except:
+    messages.warning(request, "This session year may be used in somewhere")
+  return redirect('view_session')

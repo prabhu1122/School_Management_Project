@@ -5,15 +5,15 @@
   {% include 'includes/alert.html' %}
   <div class="row align-items-center">
     <div class="col">
-      <h3 class="page-title">Course</h3>
+      <h3 class="page-title">Students</h3>
       <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
-        <li class="breadcrumb-item active">Course</li>
+        <li class="breadcrumb-item active">Students</li>
       </ul>
     </div>
     <div class="col-auto text-right float-right ml-auto">
       <a href="#" class="btn btn-outline-success mr-2"><i class="fas fa-download"></i> Download</a>
-      <a href="{% url 'add_course' %}" class="btn btn-success"><i class="fas fa-plus"></i></a>
+      <a href="{% url 'add_session' %}" class="btn btn-success"><i class="fas fa-plus"></i></a>
     </div>
   </div>
 </div>
@@ -26,32 +26,27 @@
             <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Created_at</th>
-              <th>Updated_at</th>
+              <th>Session Start</th>
+              <th>Session End</th>
               <th class="text-left">Action</th>
             </tr>
             </thead>
             <tbody>
-            {% for i in courses %}
+            {% for i in sessions %}
             <tr>
               <td>{{i.id}}</td>
-              <td>{{i.course_name}}</td>
-              <td>{{i.create_date}}</td>
-              <td>{{i.update_date}}</td>
+              <td>{{i.session_start}}</td>
+              <td>{{i.session_end}}</td>
               <td>
                 <div class="actions">
-                  <a href="{% url 'edit_course' i.id %}" class="btn btn-sm bg-success-light mr-2">
+                  <a href="{% url 'edit_session' i.id %}" class="btn btn-sm bg-success-light mr-2">
                     <i class="fas fa-pen"></i>
                   </a>
-                  <!--
-                  <a href="{% url 'delete_course' i.id %}" class="btn btn bg-danger text-white">
+
+                  <a href="{% url 'delete_session' i.id %}" class="btn btn bg-danger text-white">
                      Delete
                   </a>
-
-
-                 -->
-
+                  <!--
                   <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-trash"></i>
                   </a>
@@ -70,19 +65,19 @@
                         </div>
                         <div class="d-flex text-wrap m-4 pr-2 float-left">
                           <div class="text-secondry">
-                            <p>Dear user, do you want to delete the course from you the record permanently?</p>
+                            <p>Dear user, do you want to delete the session from you the record permanently?</p>
                           </div>
                         </div>
                         <div class="d-flex flex-row justify-content-around p-3 bt-1 hr hr-blurry">
                           <a href="#" class="btn bg-success-light" data-dismiss="modal">Cancle</a>
-                          <a href="{% url 'delete_course' i.id %}" class="btn btn bg-danger text-white">
+                          <a href="{% url 'delete_session' i.id %}" class="btn btn bg-danger text-white">
                             Delete
                           </a>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                  -->
                 </div>
               </td>
             </tr>

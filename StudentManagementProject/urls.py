@@ -43,6 +43,13 @@ urlpatterns = [
                 path('Hod/Subject/update', Hod_Views.update_subject, name='update_subject'),
                 path('Hod/Subject/delete/<str:id>', Hod_Views.delete_subject, name='delete_subject'),
   
+                # Hod session url
+                path('Hod/Session/add', Hod_Views.add_session, name='add_session'),
+                path('Hod/Session/view', Hod_Views.view_session, name='view_session'),
+                path('Hod/Session/edit/<str:id>', Hod_Views.edit_session, name='edit_session'),
+                path('Hod/Session/update', Hod_Views.update_session, name='update_session'),
+                path('Hod/Session/delete/<str:id>', Hod_Views.delete_session, name='delete_session'),
+  
                 # staff url
                 path('Staff/Home', Staff_Views.Home, name='staff_home'),
   
