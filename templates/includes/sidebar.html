@@ -1,3 +1,5 @@
+{% load active_link_tags %}
+
 <div class="sidebar" id="sidebar">
   <div class="sidebar-inner slimscroll">
     <div id="sidebar-menu" class="sidebar-menu">
@@ -5,8 +7,7 @@
         <li class="menu-title">
           <span>Main Menu</span>
         </li>
-        <li class="submenu active">
-        <li>
+        <li class="{% active_link 'hod_home' 'active' %}">
           {% if user.user_type == '1' %}
           <a href="{% url 'hod_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
           {% elif user.user_type == '2' %}
@@ -15,9 +16,8 @@
           <a href="{% url 'student_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
           {% endif %}
         </li>
-        </li>
 
-        <li class="submenu">
+        <li class="submenu {% active_link 'view_staff' 'active' %} {% active_link 'add_staff' 'active' %}">
           <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff </span> <span
               class="menu-arrow"></span></a>
           <ul>
@@ -26,7 +26,7 @@
           </ul>
         </li>
 
-        <li class="submenu">
+        <li class="submenu {% active_link 'view_student' 'active' %}{% active_link 'add_student' 'active' %}">
           <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span
               class="menu-arrow"></span></a>
           <ul>
@@ -35,7 +35,7 @@
           </ul>
         </li>
 
-        <li class="submenu">
+        <li class="submenu {% active_link 'view_course' 'active' %}{% active_link 'add_course' 'active' %}">
           <a href="#"><i class="fa fa-graduation-cap"></i><span> Courses</span> <span
               class="menu-arrow"></span></a>
           <ul>
@@ -43,7 +43,7 @@
             <li><a href="{% url 'add_course' %}">Courses Add</a></li>
           </ul>
         </li>
-        <li class="submenu">
+        <li class="submenu {% active_link 'view_subject' 'active' %}{% active_link 'add_subject' 'active' %}">
           <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span
               class="menu-arrow"></span></a>
           <ul>
@@ -52,7 +52,7 @@
           </ul>
         </li>
 
-        <li class="submenu">
+        <li class="submenu {% active_link 'view_session' 'active' %}{% active_link 'add_session' 'active' %}">
           <a href="#"><i class="fa fa-clock"></i> <span> Session</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="{% url 'view_session' %}">View Session</a></li>
@@ -61,6 +61,14 @@
         </li>
         <li class="menu-title">
           <span>Management</span>
+        </li>
+
+        <li>
+          <a href="holiday.html"><i class="fa fa-paper-plane"></i> <span>Send Staff Notification</span></a>
+        </li>
+
+        <li>
+          <a href="holiday.html"><i class="fa fa-paper-plane"></i> <span>Send Student Notification</span></a>
         </li>
 
         <li>

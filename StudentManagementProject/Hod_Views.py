@@ -6,7 +6,26 @@ from django.contrib import messages
 
 @login_required(login_url='/')
 def home(request):
-  return render(request, 'Hod/home.html')
+  user = CustomUser.objects.all()
+  students_count = Student.objects.all().count()
+  staff_count = Staff.objects.all().count()
+  course_count = Course.objects.all().count()
+  subject_count = Subject.objects.all().count()
+  
+  student_gender_male = Student.objects.filter(gender="Male").count()
+  student_gender_female = Student.objects.filter(gender="Female").count()
+  
+  context = {
+    "users": user,
+    "students_count": students_count,
+    "staffs_count": staff_count,
+    "courses_count": course_count,
+    "subjects_count": subject_count,
+    "male_count": student_gender_male,
+    "female_count": student_gender_female,
+    
+  }
+  return render(request, 'Hod/home.html', context)
 
 
 @login_required(login_url='/')

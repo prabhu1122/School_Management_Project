@@ -22,7 +22,7 @@
                   <i class="fas fa-user-graduate"></i>
                </div>
                <div class="db-info">
-                  <h3>50055</h3>
+                  <h3>{{students_count}}</h3>
                   <h6>Students</h6>
                </div>
             </div>
@@ -34,11 +34,11 @@
          <div class="card-body">
             <div class="db-widgets d-flex justify-content-between align-items-center">
                <div class="db-icon">
-                  <i class="fas fa-crown"></i>
+                  <i class="fas fa-chalkboard-teacher"></i>
                </div>
                <div class="db-info">
-                  <h3>50+</h3>
-                  <h6>Awards</h6>
+                  <h3>{{staffs_count}}</h3>
+                  <h6>Staff</h6>
                </div>
             </div>
          </div>
@@ -49,11 +49,11 @@
          <div class="card-body">
             <div class="db-widgets d-flex justify-content-between align-items-center">
                <div class="db-icon">
-                  <i class="fas fa-building"></i>
+                  <i class="fas fa-graduation-cap"></i>
                </div>
                <div class="db-info">
-                  <h3>30+</h3>
-                  <h6>Department</h6>
+                  <h3>{{courses_count}}</h3>
+                  <h6>Courses</h6>
                </div>
             </div>
          </div>
@@ -64,11 +64,11 @@
          <div class="card-body">
             <div class="db-widgets d-flex justify-content-between align-items-center">
                <div class="db-icon">
-                  <i class="fas fa-file-invoice-dollar"></i>
+                  <i class="fas fa-book"></i>
                </div>
                <div class="db-info">
-                  <h3>$505</h3>
-                  <h6>Revenue</h6>
+                  <h3>{{subjects_count}}</h3>
+                  <h6>Subjects</h6>
                </div>
             </div>
          </div>
@@ -126,7 +126,7 @@
             </div>
          </div>
          <div class="card-body">
-            <div id="bar"></div>
+            <div id="stud_gender"></div>
          </div>
       </div>
    </div>
@@ -273,4 +273,7 @@
       </div>
    </div>
 </div>
+
+{% include 'includes/chart.html' %}
 {% endblock %}
+
