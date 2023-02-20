@@ -3,18 +3,13 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-inner slimscroll">
     <div id="sidebar-menu" class="sidebar-menu">
+      {% if user.user_type == '1' %}
       <ul>
         <li class="menu-title">
           <span>Main Menu</span>
         </li>
         <li class="{% active_link 'hod_home' 'active' %}">
-          {% if user.user_type == '1' %}
           <a href="{% url 'hod_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
-          {% elif user.user_type == '2' %}
-          <a href="{% url 'staff_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
-          {% else %}
-          <a href="{% url 'student_home' %}"><i class="fa fa-user"></i><span>Dashboard</span></a>
-          {% endif %}
         </li>
 
         <li class="submenu {% active_link 'view_staff' 'active' %} {% active_link 'add_staff' 'active' %}">
@@ -36,16 +31,16 @@
         </li>
 
         <li class="submenu {% active_link 'view_course' 'active' %}{% active_link 'add_course' 'active' %}">
-          <a href="#"><i class="fa fa-graduation-cap"></i><span> Courses</span> <span
-              class="menu-arrow"></span></a>
+          <a href="#"><i class="fa fa-graduation-cap"></i><span> Courses</span>
+            <span class="menu-arrow"></span>
+          </a>
           <ul>
             <li><a href="{% url 'view_course' %}">Courses Views</a></li>
             <li><a href="{% url 'add_course' %}">Courses Add</a></li>
           </ul>
         </li>
         <li class="submenu {% active_link 'view_subject' 'active' %}{% active_link 'add_subject' 'active' %}">
-          <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span
-              class="menu-arrow"></span></a>
+          <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
           <ul>
             <li><a href="{% url 'add_subject' %}">Add Subject</a></li>
             <li><a href="{% url 'view_subject' %}">View Subject</a></li>
@@ -64,7 +59,7 @@
         </li>
 
         <li>
-          <a href="holiday.html"><i class="fa fa-paper-plane"></i> <span>Send Staff Notification</span></a>
+          <a href="{% url 'view_notification' %}"><i class="fa fa-paper-plane"></i> <span>Send Staff Notification</span></a>
         </li>
 
         <li>
@@ -95,6 +90,94 @@
           <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
         </li>
       </ul>
+      <!--staff dashboard-->
+      {% elif user.user_type == '2' %}
+      <ul>
+        <li class="menu-title">
+          <span>Main Menu</span>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'staff_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-calendar-alt"></i>
+            <span>Take Attendance</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-eye"></i>
+            <span>View/Update Attendance</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-plus"></i>
+            <span>Add Result</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fas fa-home"></i>
+            <span>Apply Leave</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-comments"></i>
+            <span>Feedback</span>
+          </a>
+        </li>
+        <li class="submenu">
+          <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </li>
+      </ul>
+      <!--Student dashboard-->
+      {% else %}
+      <ul>
+        <li class="menu-title">
+          <span>Main Menu</span>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="{% active_link 'staff_home' 'active' %}">
+          <a href="{% url 'student_home' %}">
+            <i class="fa fa-holly-berry"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        <li class="submenu">
+          <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        </li>
+      </ul>
+      {% endif %}
     </div>
   </div>
 </div>

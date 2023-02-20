@@ -68,6 +68,18 @@ class Subject(models.Model):
   staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
-
+  
   def __str__(self):
     return self.subject_name
+
+
+class StaffNotification(models.Model):
+  objects = None
+  staff_id = models.ForeignKey(Staff, on_delete=models.CASCADE)
+  messages = models.TextField()
+  status = models.IntegerField(null=True, default=0)
+  created_at = models.DateTimeField(auto_now_add=True)
+  
+  def __str__(self):
+    
+    return self.staff_id.admin.first_name

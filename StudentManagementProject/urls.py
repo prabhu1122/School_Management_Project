@@ -50,8 +50,12 @@ urlpatterns = [
                 path('Hod/Session/update', Hod_Views.update_session, name='update_session'),
                 path('Hod/Session/delete/<str:id>', Hod_Views.delete_session, name='delete_session'),
   
+                #Hod Notification url
+                path('Hod/Notification/view', Hod_Views.view_notification, name='view_notification'),
+                path('Hod/Notification/save', Hod_Views.save_notification, name='save_notification'),
+  
                 # staff url
-                path('Staff/Home', Staff_Views.Home, name='staff_home'),
+                path('Staff/Home', Staff_Views.home, name='staff_home'),
   
                 # profile url
                 path('profile', views.profile, name='profile'),

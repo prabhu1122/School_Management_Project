@@ -3,36 +3,40 @@
 $(document).ready(function() {
 
   if ($('#area-chart').length > 0) {
-        var options = {
-            chart: {
-                height: 350,
-                type: "area",
-                toolbar: {
-                    show: false
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: "smooth"
-            },
-            series: [{
-                name: "Teachers",
-                data: [45, 60, 75, 51, 42, 42, 30]
-            }, {
-                name: "Students",
-                data: [24, 48, 56, 32, 34, 52, 25]
-            }],
-            xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-            }
+    var options = {
+      chart: {
+        height: 250,
+		  	width: '100%',
+        type: "area",
+        toolbar: {
+            show: false
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "smooth"
+      },
+      series: [
+        {
+          name: "Teachers",
+          data: [45, 60, 75, 51, 42, 42, 30]
+        },
+        {
+          name: "Students",
+          data: [24, 48, 56, 32, 34, 52, 25]
         }
-        var chart = new ApexCharts(
-            document.querySelector("#area-chart"),
-            options
-        );
-        chart.render();
+      ],
+      xaxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      }
+    }
+    var chart = new ApexCharts(
+        document.querySelector("#area-chart"),
+        options
+    );
+    chart.render();
 	}
 
 	// Bar chart
@@ -41,7 +45,7 @@ $(document).ready(function() {
 	var optionsBar = {
 		chart: {
 			type: 'bar',
-			height: 350,
+			height: 250,
 			width: '100%',
 			stacked: true,
 			toolbar: {
@@ -72,12 +76,12 @@ $(document).ready(function() {
 				show: false
 			},
 			axisTicks: {
-				show: false
+				show: true
 			},
 		},
 		yaxis: {
 			axisBorder: {
-				show: false
+				show: true
 			},
 			axisTicks: {
 				show: false
@@ -98,11 +102,39 @@ $(document).ready(function() {
 
 	}
 
-	var chartBar = new ApexCharts(document.querySelector('#stud_gender'), optionsBar);
-	chartBar.render();
-	}
+  //pieChart
+	if ($('#pie-chart').length > 0) {
+    var chartBar = new ApexCharts(document.querySelector('#stud_gender'), optionsBar);
+    chartBar.render();
+    }
 
+    var options = {
+      series: [{{students_count}},{{staffs_count}}],
+      labels:['Students', 'Staffs'],
+      chart: {
+        height: 250,
+        width: '100%',
+        type: 'donut',
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom',
+            formatter: function(val, opts) {
+              return val + " - " + opts.w.globals.series[opts.seriesIndex]
+            }
+          }
+        }
+      }]
+      };
 
+    var chart = new ApexCharts(document.querySelector("#pie-stud-staff"), options);
+    chart.render();
+  }
 
 	//pieChart
 	if ($('#pie-chart').length > 0) {
@@ -110,7 +142,8 @@ $(document).ready(function() {
         series: [{{students_count}}, {{staffs_count}}, {{courses_count}}, {{subjects_count}}],
         labels: ['Students', 'Staffs', 'Courses', 'Subjects'],
         chart: {
-          width: 380,
+          height: 250,
+          width: '100%',
           type: 'donut',
         },
         plotOptions: {
@@ -123,7 +156,7 @@ $(document).ready(function() {
           }
         },
         dataLabels: {
-          enabled: false
+          enabled: true
         },
         fill: {
           type: 'gradient',
@@ -140,7 +173,7 @@ $(document).ready(function() {
           breakpoint: 180,
           options: {
             chart: {
-              width: 100
+              width: 200
             },
             legend: {
               position: 'bottom'
@@ -153,6 +186,7 @@ $(document).ready(function() {
 	}
 
 });
+
 
 
 

@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        {% include 'includes/alert.html' %}
+        <div class="row">
+          <div class="col bg-white">
+            <h3 class="page-title">Staff Notification</h3>
+            <ul class="breadcrumb bg-white p-0 mb-5">
+              <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+              <li class="breadcrumb-item active">Staff Notifications</li>
+            </ul>
+          </div>
+          <div class="col-auto text-right float-right ml-auto">
+            <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#view_notification">
+              <i class="fas fa-eye"></i><span class="ml-2">View All Notifications</span>
+            </button>
+            <a href="#" class="btn btn-success"><i class="fas fa-plus"></i></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card card-table">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="table_id" class="table table-hover table-center mb-0">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th class="text-left">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in staffs %}
+                    <tr>
+                      <td>{{i.id}}</td>
+                      <td>
+                        <h2 class="table-avatar">
+                          {% if i.admin_id.profile_Pic == "" %}
+                          <a href="#" class="avatar avatar-sm mr-2">
+                            <img class="avatar-img rounded-circle" src="{% static 'assets/img/no-img.jpg' %}"></a>
+                          {% else %}
+                          <a href="#" class="avatar avatar-sm mr-2"><img
+                              class="avatar-img rounded-circle" src="/{{i.admin.profile_Pic}}"></a>
+                          <a href="#">{{i.admin.first_name}}&nbsp;{{i.admin.last_name}}</a>
+                          {% endif %}
+                        </h2>
+                      </td>
+                      <td>{{i.admin.email}}</td>
+                      <td>
+                        <div class="actions">
+                          <button class="btn btn-success" data-toggle="modal"
+                                  data-target="#send_Notification-{{forloop.counter}}"><i class="fa fa-paper-plane"></i>
+                            <span class="ml-3">Send</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Staff Notification Modals-->
+<div class="modal fade" id="view_notification" tabindex="-1" role="dialog" aria-labelledby="view_notificationLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="view_notificationLabel"><span class="text-secondary">Delete Data</span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="m-4 pr-2 float-left">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card card-table">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="table_id" class="table table-hover table-center mb-0">
+                    <thead>
+                    <tr>
+                      <th>Message</th>
+                      <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in see_notification %}
+                    <tr>
+                      <td>{{i.messages}}</td>
+                      {% if i.status == 1 %}
+                      <td><span class="badge badge-success">Seen</span></td>
+                      {% else %}
+                      <td><span class="badge badge-danger">Not Seen</span></td>
+                      {% endif %}
+                      <td>{{i.message}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% for i in staffs %}
+<!--Staff Send Notification Modals-->
+<div class="modal fade" id="send_Notification-{{forloop.counter}}" tabindex="-1" role="dialog"
+     aria-labelledby="send_NotificationLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="send_NotificationLabel"><span class="text-secondary">Send Notification to {{i.admin.first_name}}&nbsp;{{i.admin.last_name}}</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="m-4 pr-2">
+        <form method="POST" action="{% url 'save_notification' %}">
+          {% csrf_token %}
+          <div class="mb-2">
+            <label class="form-label">Message</label>
+            <input type="text" class="form-control" name="message">
+            <input type="text" class="form-control" name="staff_id" value="{{i.admin.id}}" hidden>
+          </div>
+          <button type="submit" class="btn btn-primary float-centre">Send Notification</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn bg-success-light float-right" data-dismiss="modal">Cancle</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

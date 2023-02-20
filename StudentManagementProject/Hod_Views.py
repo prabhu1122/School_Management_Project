@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject
+from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
 from django.contrib import messages
 
 
@@ -460,3 +460,30 @@ def delete_session(request, id):
   except:
     messages.warning(request, "This session year may be used in somewhere")
   return redirect('view_session')
+
+
+def view_notification(request):
+  staff = Staff.objects.all()
+  see_notification = StaffNotification.objects.all()
+  context = {
+    "staffs": staff,
+    "see_notification": see_notification,
+  }
+  return render(request, "Hod/notification.html", context)
+
+
+def save_notification(request):
+  if request.method == "POST":
+    staff_id = request.POST.get('staff_id')
+    message = request.POST.get('message')
+    
+    staff = Staff.objects.get(admin=staff_id)
+    notification = StaffNotification(
+      staff_id=staff,
+      messages=message,
+    )
+    notification.save()
+    messages.success(request, "Notification Sent!!!")
+  else:
+    messages.error(request, "Notification not send!!!")
+  return redirect('view_notification')
