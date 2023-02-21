@@ -448,16 +448,16 @@ def update_session(request):
     session.session_end = session_end
     
     session.save()
-    messages.success(request, "success")
+    messages.success(request, "Session updated successfully")
     return redirect('view_session')
   return redirect('view_session')
 
 
 def delete_session(request, id):
   try:
-    session = SessionYear.objects.get(id=id)
+    session = SessionYear.objects.get(id=id.user)
     session.delete()
-    messages.success(request, "success")
+    messages.success(request, "Session deleted successfully")
   except:
     messages.warning(request, "This session year may be used in somewhere")
   return redirect('view_session')
@@ -490,7 +490,7 @@ def save_notification(request):
   return redirect('view_notification')
 
 
-def notification_delete(request, id):
+def delete_notification(request, id):
   try:
     notification = StaffNotification.objects.get(id=id)
     print(notification)
@@ -498,5 +498,5 @@ def notification_delete(request, id):
     messages.success(request, "Notification deleted successfully")
     return redirect('view_notification')
   except:
-    messages.error(request, "Notification deleted successfully")
+    messages.error(request, "Something went wronge!!!")
     return redirect('view_notification')

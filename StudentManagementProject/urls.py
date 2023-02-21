@@ -55,7 +55,7 @@ urlpatterns = [
                 # Hod Notification url
                 path('Hod/Notification/view', Hod_Views.view_notification, name='view_notification'),
                 path('Hod/Notification/save', Hod_Views.save_notification, name='save_notification'),
-                path('Staff/Notification/delete/<str:id>', Hod_Views.notification_delete, name='delete_notification'),
+                path('Staff/Notification/delete/<str:id>', Hod_Views.delete_notification, name='delete_notification'),
   
                 ########################################################################################################
                 # staff notification url

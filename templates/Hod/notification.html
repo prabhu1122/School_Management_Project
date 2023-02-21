@@ -68,7 +68,7 @@
   </div>
 </div>
 
-<!--Staff Notification Modals-->
+<!--view Staff Notification Modals-->
 <div aria-hidden="true" aria-labelledby="view_notificationLabel" class="modal fade" data-bs-backdrop="static"
      data-bs-keyboard="false"
      id="view_notification"
@@ -101,37 +101,32 @@
             <td>
               <button class="btn btn-danger d-flex justify-content-between align-items-center"
                       data-target="#delete_notification-{{forloop.counter}}"
-                      data-toggle="modal"
-                      style="width: 100px;">
+                      data-toggle="modal">
                 <i class="fa fa-trash"></i>
-                <span>Delete</span>
               </button>
             </td>
             {% else %}
             <td><span class="badge badge-danger"><i class="fa fa-times pr-2"></i>Unchecked</span></td>
             <td>
-              <button class="btn btn-danger d-flex justify-content-between align-items-center"
-                      style="width: 100px;" disabled>
+              <button class="btn btn-danger d-flex justify-content-between align-items-center" disabled>
                 <i class="fa fa-trash"></i>
-                <span>Delete</span>
               </button>
             </td>
             {% endif %}
           </tr>
           {% endfor %}
-
           </tbody>
         </table>
       </div>
       <div class="modal-footer">
-        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancle</a>
+        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancel</a>
       </div>
     </div>
   </div>
 </div>
 
 <!--Staff delete Notification Modals-->
-{% for i in see_notification %}
+{% for j in see_notification %}
 <div aria-hidden="true" aria-labelledby="delete_notificationLabel" class="modal fade"
      id="delete_notification-{{forloop.counter}}"
      role="dialog"
@@ -152,9 +147,11 @@
         Delete the notification permanently??
       </div>
       <div class="modal-footer">
-        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancle</a>
-        <a href="{% url 'delete_notification' i.id %}" class="btn bg-danger float-right"
-           data-dismiss="modal">Delete</a>
+        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancel</a>
+        <a href="{% url 'delete_notification' j.id %}" class="btn bg-danger float-right"
+           data-dismiss="modal">
+          Delete
+        </a>
       </div>
     </div>
   </div>

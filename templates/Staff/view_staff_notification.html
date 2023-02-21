@@ -7,7 +7,7 @@
     <div class="col">
       <h3 class="page-title">Notification</h3>
       <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Notification</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'view_staff_notification' %}">Notification</a></li>
         <li class="breadcrumb-item active">view</li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
               <td>
                 <div class="action">
                   {% if i.status == 0 %}
-                  <a href="{% url 'notification_status' status=i.id %}"
+                  <a href="{% url 'notification_status' i.id %}"
                      class="btn btn-danger float-right" style="width: 180px;">
                     <i class="fa fa-times pr-2"></i>
                     Mark as read
