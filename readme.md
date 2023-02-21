@@ -71,7 +71,8 @@ $ pip install -r requirements.txt
  * `Django==4.1.5`
  * `Pillow==9.1.5`
  * `sqlparse==0.4.3`              
- * `tzdata==2022.7`             
+ * `tzdata==2022.7`   
+ * `django-active-link==0.1.8`
 
 ### Install pillow
 
