@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path
+
 from . import views, Hod_Views, Staff_Views, Student_Views
 
 urlpatterns = [
@@ -14,6 +15,7 @@ urlpatterns = [
                 path('doLogout/', views.do_logout, name='logout'),
                 path('register/', views.register, name='register'),
   
+                ########################################################################################################
                 # hod student url
                 path('Hod/Home', Hod_Views.home, name='hod_home'),
                 path('Hod/Student/add', Hod_Views.add_student, name='add_student'),
@@ -50,17 +52,24 @@ urlpatterns = [
                 path('Hod/Session/update', Hod_Views.update_session, name='update_session'),
                 path('Hod/Session/delete/<str:id>', Hod_Views.delete_session, name='delete_session'),
   
-                #Hod Notification url
+                # Hod Notification url
                 path('Hod/Notification/view', Hod_Views.view_notification, name='view_notification'),
                 path('Hod/Notification/save', Hod_Views.save_notification, name='save_notification'),
+                path('Staff/Notification/delete/<str:id>', Hod_Views.notification_delete, name='delete_notification'),
   
-                # staff url
+                ########################################################################################################
+                # staff notification url
                 path('Staff/Home', Staff_Views.home, name='staff_home'),
   
+                path('Staff/Notification/view', Staff_Views.view_staff_notification, name='view_staff_notification'),
+                path('Staff/Notification/<str:status>', Staff_Views.notification_status, name='notification_status'),
+  
+                ########################################################################################################
                 # profile url
                 path('profile', views.profile, name='profile'),
                 path('profile/update', views.profile_update, name='profile_update'),
   
+                ########################################################################################################
                 # student url
                 path('Student/Home', Student_Views.home, name='student_home'),
 

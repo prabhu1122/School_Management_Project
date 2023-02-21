@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
 
 
 @login_required(login_url='/')
@@ -487,3 +488,15 @@ def save_notification(request):
   else:
     messages.error(request, "Notification not send!!!")
   return redirect('view_notification')
+
+
+def notification_delete(request, id):
+  try:
+    notification = StaffNotification.objects.get(id=id)
+    print(notification)
+    notification.delete()
+    messages.success(request, "Notification deleted successfully")
+    return redirect('view_notification')
+  except:
+    messages.error(request, "Notification deleted successfully")
+    return redirect('view_notification')

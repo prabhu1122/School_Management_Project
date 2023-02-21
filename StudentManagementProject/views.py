@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from myApp.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import login, logout
 from django.contrib import messages
-from myApp.models import CustomUser
+from myApp.models import CustomUser, Staff, StaffNotification
 from django.contrib.auth.decorators import login_required
 
 

@@ -58,7 +58,7 @@
           <span>Management</span>
         </li>
 
-        <li>
+        <li class="{% active_link 'view_notification' 'active' %}">
           <a href="{% url 'view_notification' %}"><i class="fa fa-paper-plane"></i> <span>Send Staff Notification</span></a>
         </li>
 
@@ -102,34 +102,47 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="{% active_link 'staff_home' 'active' %}">
+        <li class="{% active_link '' 'active' %}">
           <a href="{% url 'student_home' %}">
             <i class="fa fa-calendar-alt"></i>
             <span>Take Attendance</span>
           </a>
         </li>
-        <li class="{% active_link 'staff_home' 'active' %}">
+        <li class="{% active_link '' 'active' %}">
           <a href="{% url 'student_home' %}">
             <i class="fa fa-eye"></i>
             <span>View/Update Attendance</span>
           </a>
         </li>
-        <li class="{% active_link 'staff_home' 'active' %}">
+        <li class="{% active_link '' 'active' %}">
           <a href="{% url 'student_home' %}">
             <i class="fa fa-plus"></i>
             <span>Add Result</span>
           </a>
         </li>
-        <li class="{% active_link 'staff_home' 'active' %}">
+        <li class="{% active_link '' 'active' %}">
           <a href="{% url 'student_home' %}">
             <i class="fas fa-home"></i>
             <span>Apply Leave</span>
           </a>
         </li>
-        <li class="{% active_link 'staff_home' 'active' %}">
+        <li class="{% active_link '' 'active' %}">
           <a href="{% url 'student_home' %}">
             <i class="fa fa-comments"></i>
             <span>Feedback</span>
+          </a>
+        </li>
+        <li class="{% active_link 'view_staff_notification' 'active' %}">
+          <a href="{% url 'view_staff_notification' %}">
+            <i class="fa fa-bell position-relative">
+              {% if notification_count > 0 %}
+              <span class="position-absolute badge badge-danger d-flex justify-content-center align-items-center"
+                   style="border-radius: 50%; width: 15px; height: 15px; top: -1px; right: -1px;">
+                {{notification_count}}
+              </span>
+              {% endif %}
+            </i>
+            <span class="w-100">Notifications </span>
           </a>
         </li>
         <li class="submenu">
