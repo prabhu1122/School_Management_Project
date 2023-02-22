@@ -39,11 +39,11 @@
               <td>{{i.leave_from}}</td>
               <td>{{i.leave_to}}</td>
               <td>
-                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#leave_action">
-                  <i class="fa fa-eye"></i>
+                <button class="btn btn-primary"
+                        data-target="#leaveAction-{{forloop.counter}}"
+                        data-toggle="modal"><i class="fa fa-paper-plane"></i>
+                  <span class="ml-1">Send</span>
                 </button>
-                <a href="{% url 'accept_staff_leave' i.id %}" class="btn btn-primary">Accept</a>
-                <a href="{% url 'decline_staff_leave' i.id %}" class="btn btn-danger">Decline</a>
               </td>
             </tr>
             {% endfor %}
@@ -56,18 +56,19 @@
 </div>
 
 
-<!--Modal for leave action-->
+<!--Modal for leave action  leave_action-->
 
-<div aria-hidden="true" aria-labelledby="leave_actionLabel" class="modal fade"
-     id="leave_action"
+{% for i in leave %}
+<div aria-hidden="true" aria-labelledby="leaveActionLabel" class="modal fade"
+     id="leaveAction-{{forloop.counter}}"
      role="dialog"
      tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="leave_actionLabel">
+        <h5 class="modal-title" id="leaveActionLabel">
           <span class="text-secondary">
-          Delete Notification
+          Message Content
           </span>
         </h5>
         <button aria-label="Close" class="close" data-dismiss="modal" type="button">
@@ -75,14 +76,36 @@
         </button>
       </div>
       <div class="modal-body">
-        ...body
+        <div class="m-4 pr-2">
+          <div class="col-12 letter-header">
+            <span class="float-right">{{i.leave_apply_date}}</span>
+            <p><strong>To</strong></br>&nbsp;&nbsp;&nbsp;&nbsp;The Head Of Depart.</br>&nbsp;&nbsp;&nbsp;&nbsp;Preschool
+              Jhunsi,</br>&nbsp;&nbsp;&nbsp;&nbsp;Jhunsi,
+              Prayagraj</p>
+            <p><strong>Dear Sir/Mam</strong>,</p>
+          </div>
+          <div class="col-12 letter-subject">
+            <p><strong>Subject:</strong>&nbsp;&nbsp;&nbsp;{{i.subject}}</p>
+          </div>
+          <div class="col-12 letter-body">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.message}}</p>
+            Thank you.
+          </div>
+          &nbsp;
+          <div class="col-12 letter-footer">
+            <p class="mb-0">Your faithfully</p>
+            <p class="mb-0 text-dark">{{user.first_name}}&nbsp;{{user.last_name}}</p>
+            <p>(Staff Member)</p>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancel</a>
-        <a class="btn bg-danger float-right"data-dismiss="modal" href="#">Delete</a>
+        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancle</a>
+        <a href="{% url 'accept_staff_leave' i.id %}" class="btn btn-primary">Accept</a>
+        <a href="{% url 'decline_staff_leave' i.id %}" class="btn btn-danger">Decline</a>
       </div>
     </div>
   </div>
 </div>
-
+{% endfor %}
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
 from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification, LeaveRequest
 
 
@@ -453,11 +454,10 @@ def update_session(request):
 
 
 def delete_session(request, id):
-  
   session = SessionYear.objects.get(id=id)
   session.delete()
   messages.success(request, "Session deleted successfully")
-
+  
   return redirect('view_session')
 
 
@@ -500,20 +500,12 @@ def delete_notification(request, id):
     return redirect('view_notification')
 
 
-def view_staff_leave(request):
-  leave_request = LeaveRequest.objects.all()
-  context = {
-    "leave": leave_request
-  }
-  return render(request, 'Hod/view_staff_leave.html', context)
-
-
 def accept_staff_leave(request, id):
   leave_id = LeaveRequest.objects.get(id=id)
   leave_id.status = 1
   leave_id.save()
-  messages.success(request, leave_id.staff_name.admin.first_name +" "
-                   + leave_id.staff_name.admin.last_name+"'s leave accepted")
+  messages.success(request, leave_id.staff_name.admin.first_name + " "
+                   + leave_id.staff_name.admin.last_name + "'s leave accepted")
   return redirect('view_staff_leave')
 
 
@@ -521,10 +513,22 @@ def decline_staff_leave(request, id):
   leave_id = LeaveRequest.objects.get(id=id)
   leave_id.status = 2
   leave_id.save()
-  messages.error(request, leave_id.staff_name.admin.first_name +" "
-                   + leave_id.staff_name.admin.last_name+"'s leave rejected")
+  messages.error(request, leave_id.staff_name.admin.first_name + " "
+                 + leave_id.staff_name.admin.last_name + "'s leave rejected")
   return redirect('view_staff_leave')
 
 
+def view_staff_leave(request):
+  leave_request = LeaveRequest.objects.all()
+  staff = Staff.objects.all()
+  see_notification = StaffNotification.objects.all()
+  context = {
+    "staffs": staff,
+    "see_notification": see_notification,
+    "leave": leave_request,
+  }
+  return render(request, 'Hod/view_staff_leave.html', context)
+
+
 def view_student_leave(request):
-  return render(request, "Hod/view_student_leave.html")
+  return render(request, "Hod/notification.html")
