@@ -38,9 +38,6 @@ def notification_status(request, status):
 
 
 def apply_leave(request):
-  leave_status = LeaveRequest.objects.all()
-  print(leave_status)
-    
   if request.method == "POST":
     staff_id = request.POST.get('staff_id')
     leave_date = request.POST.get('leave')
@@ -62,4 +59,13 @@ def apply_leave(request):
     leave_request.save()
     messages.success(request, "Leave applied successfully")
     return redirect('apply_leave')
-  return render(request, "Staff/applyLeave.html")
+  
+  staffs = Staff.objects.filter(admin=request.user.id)
+  for i in staffs:
+    staff_id = i.id
+    leave_status = LeaveRequest.objects.filter(staff_name=staff_id)
+    context = {
+      "leave_status": leave_status
+    }
+    return render(request, "Staff/applyLeave.html", context)
+  

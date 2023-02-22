@@ -17,9 +17,9 @@
 
         <li class="submenu {% active_link 'view_staff' 'active' %} {% active_link 'add_staff' 'active' %}">
           <a href="#"
-            ><i class="fas fa-chalkboard-teacher"></i> <span> Staff </span>
+          ><i class="fas fa-chalkboard-teacher"></i> <span> Staff </span>
             <span class="menu-arrow"></span
-          ></a>
+            ></a>
           <ul>
             <li><a href="{% url 'view_staff' %}">View Staff</a></li>
             <li><a href="{% url 'add_staff' %}">Add Staff</a></li>
@@ -27,12 +27,12 @@
         </li>
 
         <li
-          class="submenu {% active_link 'view_student' 'active' %}{% active_link 'add_student' 'active' %}"
+            class="submenu {% active_link 'view_student' 'active' %}{% active_link 'add_student' 'active' %}"
         >
           <a href="#"
-            ><i class="fas fa-user-graduate"></i> <span> Students</span>
+          ><i class="fas fa-user-graduate"></i> <span> Students</span>
             <span class="menu-arrow"></span
-          ></a>
+            ></a>
           <ul>
             <li><a href="{% url 'view_student' %}">View Student</a></li>
             <li><a href="{% url 'add_student' %}">Add Student</a></li>
@@ -40,10 +40,10 @@
         </li>
 
         <li
-          class="submenu {% active_link 'view_course' 'active' %}{% active_link 'add_course' 'active' %}"
+            class="submenu {% active_link 'view_course' 'active' %}{% active_link 'add_course' 'active' %}"
         >
           <a href="#"
-            ><i class="fa fa-graduation-cap"></i><span> Courses</span>
+          ><i class="fa fa-graduation-cap"></i><span> Courses</span>
             <span class="menu-arrow"></span>
           </a>
           <ul>
@@ -53,7 +53,7 @@
         </li>
         <li class="submenu {% active_link 'view_subject' 'active' %}{% active_link 'add_subject' 'active' %}">
           <a href="#">
-            <i class="fas fa-book-reader"></i> 
+            <i class="fas fa-book-reader"></i>
             <span> Subjects</span>
             <span class="menu-arrow"></span>
           </a>
@@ -64,12 +64,12 @@
         </li>
 
         <li
-          class="submenu {% active_link 'view_session' 'active' %}{% active_link 'add_session' 'active' %}"
+            class="submenu {% active_link 'view_session' 'active' %}{% active_link 'add_session' 'active' %}"
         >
           <a href="#"
-            ><i class="fa fa-clock"></i> <span> Session</span>
+          ><i class="fa fa-clock"></i> <span> Session</span>
             <span class="menu-arrow"></span
-          ></a>
+            ></a>
           <ul>
             <li><a href="{% url 'view_session' %}">View Session</a></li>
             <li><a href="{% url 'add_session' %}">Add Session</a></li>
@@ -95,9 +95,20 @@
 
         <li>
           <a href="holiday.html">
-            <i class="fa fa-calendar"></i> 
+            <i class="fa fa-calendar"></i>
             <span>View Attendance</span>
           </a>
+        </li>
+
+        <li class="submenu {% active_link 'view_staff_leave' 'active' %}{% active_link 'view_student_leave' 'active' %}">
+          <a href="#">
+            <i class="fa fa-home"></i> <span>Leave</span>
+            <span class="menu-arrow"></span>
+          </a>
+          <ul>
+            <li><a href="{% url 'view_staff_leave' %}">Staff Leave</a></li>
+            <li><a href="{% url 'view_student_leave' %}">Student Leave</a></li>
+          </ul>
         </li>
 
         <li class="submenu">
@@ -112,25 +123,15 @@
         </li>
 
         <li class="submenu">
-          <a href="#">
-            <i class="fa fa-home"></i> <span> Leave</span>
-            <span class="menu-arrow"></span>
-          </a>
-          <ul>
-            <li><a href="departments.html">Staff Leave</a></li>
-            <li><a href="add-department.html">Student Leave</a></li>
-          </ul>
-        </li>
-        <li class="submenu">
           <a href="{% url 'logout' %}">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
           </a>
         </li>
       </ul>
-      
-<!--######__staff_dashboard__######################################################################################################-->      
-      
+
+      <!--######__staff_dashboard__######################################################################################################-->
+
       {% elif user.user_type == '2' %}
       <ul>
         <li class="menu-title">
@@ -177,8 +178,8 @@
             <i class="fa fa-bell position-relative">
               {% if notification_count > 0 %}
               <span
-                class="position-absolute badge badge-danger d-flex justify-content-center align-items-center"
-                style="border-radius: 50%; width: 15px; height: 15px; top: -3px; right: -3px;">
+                  class="position-absolute badge badge-danger d-flex justify-content-center align-items-center"
+                  style="border-radius: 50%; width: 15px; height: 15px; top: -3px; right: -3px;">
                 {{notification_count}}
               </span>
               {% endif %}
@@ -188,13 +189,13 @@
         </li>
         <li class="submenu">
           <a href="{% url 'logout' %}"
-            ><i class="fas fa-sign-out-alt"></i><span>Logout</span></a
+          ><i class="fas fa-sign-out-alt"></i><span>Logout</span></a
           >
         </li>
       </ul>
-      
-<!--#####__Student_dashboard__######################################################################################################-->      
-      
+
+      <!--#####__Student_dashboard__######################################################################################################-->
+
       {% else %}
       <ul>
         <li class="menu-title">

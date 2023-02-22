@@ -55,7 +55,13 @@ urlpatterns = [
                 # Hod Notification url
                 path('Hod/Notification/view', Hod_Views.view_notification, name='view_notification'),
                 path('Hod/Notification/save', Hod_Views.save_notification, name='save_notification'),
-                path('Staff/Notification/delete/<str:id>', Hod_Views.delete_notification, name='delete_notification'),
+                path('Hod/Notification/delete/<str:id>', Hod_Views.delete_notification, name='delete_notification'),
+  
+                # Hod Notification url
+                path('Hod/Leave/staff', Hod_Views.view_staff_leave, name='view_staff_leave'),
+                path('Hod/Leave/staff-accept/<str:id>', Hod_Views.accept_staff_leave, name='accept_staff_leave'),
+                path('Hod/Leave/staff-decline/<str:id>', Hod_Views.decline_staff_leave, name='decline_staff_leave'),
+                path('Hod/Leave/student', Hod_Views.view_student_leave, name='view_student_leave'),
   
                 ########################################################################################################
                 # staff notification url

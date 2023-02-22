@@ -11,7 +11,7 @@ ___
 ## Requirements:
 
 [![Python Version](https://img.shields.io/badge/Python-V3.10.1-blue?style=plastic&logoColor=yellow&logo=python)](https://www.python.org/downloads/)
-[![Django Version](https://img.shields.io/badge/Django-V4.1.5-gree?style=plastic&logoColor=cyan&logo=django)](https://www.djangoproject.com/download/)
+[![Django Version](https://img.shields.io/badge/Django-V4.1.7-gree?style=plastic&logoColor=cyan&logo=django)](https://www.djangoproject.com/download/)
 ![HTML](https://img.shields.io/badge/Html-V5.0-orange?style=plastic&logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-V5.0-skyblue?style=plastic&logo=css3)
 
@@ -68,7 +68,7 @@ $ pip install -r requirements.txt
 ### List
 
  * `asgiref==3.6.0`
- * `Django==4.1.5`
+ * `Django==4.1.7`
  * `Pillow==9.1.5`
  * `sqlparse==0.4.3`              
  * `tzdata==2022.7`   

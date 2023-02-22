@@ -120,24 +120,29 @@
           <table id="table_id" class="table table-hover table-center mb-0">
             <thead>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Staff Name</th>
-              <th>Course Name</th>
-              <th>Created_at</th>
-              <th>Updated_at</th>
-              <th class="text-left">Action</th>
+              <th>Subject</th>
+              <th>Applied Date</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Status</th>
             </tr>
             </thead>
             <tbody>
-            {% for i in subjects %}
+            {% for i in leave_status %}
             <tr>
-              <td>{{i.id}}</td>
-              <td>{{i.subject_name}}</td>
-              <td>{{i.staff}}</td>
-              <td>{{i.course}}</td>
-              <td>{{i.created_at}}</td>
-              <td>{{i.updated_at}}</td>
+              <td>{{i.subject}}</td>
+              <td>{{i.leave_apply_date}}</td>
+              <td>{{i.leave_from}}</td>
+              <td>{{i.leave_to}}</td>
+              <td>
+                {% if i.status == 0 %}
+                <span class="badge badge-warning">Pending</span>
+                {% elif i.status == 1 %}
+                <span class="badge badge-success">Approved</span>
+                {% else %}
+                <span class="badge badge-danger">Denied</span>
+                {% endif %}
+              </td>
             </tr>
             {% endfor %}
             </tbody>

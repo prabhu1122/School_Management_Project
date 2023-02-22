@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page-header">
+  {% include 'includes/alert.html' %}
+  <div class="row align-items-center">
+    <div class="col">
+      <h3 class="page-title">Leave Response</h3>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'apply_leave' %}">Leave Response</a></li>
+        <li class="breadcrumb-item active">Status</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card card-table">
+      <div class="card-header border border-info d-flex justify-content-center bg-info text-primary">
+        <strong>Leave Status</strong>
+      </div>
+      <div class="card-body border border-info">
+        <div class="table-responsive">
+          <table id="table_id" class="table table-hover table-center mb-0">
+            <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Applied Date</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in leave_status %}
+            <tr>
+              <td>{{i.subject}}</td>
+              <td>{{i.leave_apply_date}}</td>
+              <td>{{i.leave_from}}</td>
+              <td>{{i.leave_to}}</td>
+              <td>
+                {% if i.status == 0 %}
+                <span class="badge badge-warning">Pending</span>
+                {% elif i.status == 1 %}
+                <span class="badge badge-success">Approved</span>
+                {% else %}
+                <span class="badge badge-danger">Denied</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

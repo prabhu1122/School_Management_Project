@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
+from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification, LeaveRequest
 
 
 @login_required(login_url='/')
@@ -498,3 +498,33 @@ def delete_notification(request, id):
   except:
     messages.error(request, "Something went wronge!!!")
     return redirect('view_notification')
+
+
+def view_staff_leave(request):
+  leave_request = LeaveRequest.objects.all()
+  context = {
+    "leave": leave_request
+  }
+  return render(request, 'Hod/view_staff_leave.html', context)
+
+
+def accept_staff_leave(request, id):
+  leave_id = LeaveRequest.objects.get(id=id)
+  leave_id.status = 1
+  leave_id.save()
+  messages.success(request, leave_id.staff_name.admin.first_name +" "
+                   + leave_id.staff_name.admin.last_name+"'s leave accepted")
+  return redirect('view_staff_leave')
+
+
+def decline_staff_leave(request, id):
+  leave_id = LeaveRequest.objects.get(id=id)
+  leave_id.status = 2
+  leave_id.save()
+  messages.success(request, leave_id.staff_name.admin.first_name +" "
+                   + leave_id.staff_name.admin.last_name+"'s leave rejected")
+  return redirect('view_staff_leave')
+
+
+def view_student_leave(request):
+  return render(request, "Hod/view_student_leave.html")
