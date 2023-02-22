@@ -41,7 +41,7 @@ class Student(models.Model):
   gender = models.CharField(max_length=100)
   # it will only delete the (Course) from students Model not from admin
   course_id = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
-  session_year_id = models.ForeignKey(SessionYear, on_delete=models.CASCADE)
+  session_year_id = models.ForeignKey(SessionYear, on_delete=models.DO_NOTHING)
   create_date = models.DateTimeField(auto_now_add=True)
   update_date = models.DateTimeField(auto_now=True)
   
