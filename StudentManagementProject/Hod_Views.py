@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-
 from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
 
 
@@ -454,12 +453,11 @@ def update_session(request):
 
 
 def delete_session(request, id):
-  try:
-    session = SessionYear.objects.get(id=id.user)
-    session.delete()
-    messages.success(request, "Session deleted successfully")
-  except:
-    messages.warning(request, "This session year may be used in somewhere")
+  
+  session = SessionYear.objects.get(id=id)
+  session.delete()
+  messages.success(request, "Session deleted successfully")
+
   return redirect('view_session')
 
 

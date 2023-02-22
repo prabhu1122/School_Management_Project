@@ -4,14 +4,14 @@
 
 {% include 'includes/alert.html' %}
 <div class="row">
-  <div class="col bg-white">
+  <div class="col-12 col-sm-8">
     <h3 class="page-title">Staff Notification</h3>
-    <ul class="breadcrumb bg-white p-0 mb-5">
+    <ul class="breadcrumb bg-white p-0 mb-3">
       <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
       <li class="breadcrumb-item active">Staff Notifications</li>
     </ul>
   </div>
-  <div class="col-auto text-right float-right ml-auto">
+  <div class="col-12 col-sm-4 text-right mb-3">
     <button class="btn btn-primary mr-2" data-target="#view_notification" data-toggle="modal" type="button">
       <i class="fas fa-eye"></i><span class="ml-2">View All Notifications</span>
     </button>
@@ -40,11 +40,15 @@
                 <h2 class="table-avatar">
                   {% if i.admin_id.profile_Pic == "" %}
                   <a class="avatar avatar-sm mr-2" href="#">
-                    <img class="avatar-img rounded-circle" src="{% static 'assets/img/no-img.jpg' %}"></a>
+                    <img class="avatar-img rounded-circle" src="{% static 'assets/img/no-img.jpg' %}">
+                  </a>
                   {% else %}
-                  <a class="avatar avatar-sm mr-2" href="#"><img
-                      class="avatar-img rounded-circle" src="/{{i.admin.profile_Pic}}"></a>
-                  <a href="#">{{i.admin.first_name}}&nbsp;{{i.admin.last_name}}</a>
+                  <a class="avatar avatar-sm mr-2" href="#">
+                    <img class="avatar-img rounded-circle" src="/{{i.admin.profile_Pic}}">
+                  </a>
+                  <a href="#">
+                    {{i.admin.first_name}}&nbsp;{{i.admin.last_name}}
+                  </a>
                   {% endif %}
                 </h2>
               </td>
@@ -54,7 +58,7 @@
                   <button class="btn btn-primary"
                           data-target="#send_Notification-{{forloop.counter}}"
                           data-toggle="modal"><i class="fa fa-paper-plane"></i>
-                    <span class="ml-3">Send</span>
+                    <span class="ml-1">Send</span>
                   </button>
                 </div>
               </td>
@@ -68,7 +72,7 @@
   </div>
 </div>
 
-<!--view Staff Notification Modals-->
+<!--View_Staff_Notification_Modals-->
 <div aria-hidden="true" aria-labelledby="view_notificationLabel" class="modal fade" data-bs-backdrop="static"
      data-bs-keyboard="false"
      id="view_notification"

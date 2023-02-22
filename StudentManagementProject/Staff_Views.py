@@ -26,7 +26,7 @@ def view_staff_notification(request):
       "notification_count": notification_count,
     }
     return render(request, "Staff/view_staff_notification.html", context)
-
+  return render(request, "Staff/view_staff_notification.html")
 
 def notification_status(request, status):
   notification = StaffNotification.objects.get(id=status)
