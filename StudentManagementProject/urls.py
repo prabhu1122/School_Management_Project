@@ -63,6 +63,7 @@ urlpatterns = [
   
                 path('Staff/Notification/view', Staff_Views.view_staff_notification, name='view_staff_notification'),
                 path('Staff/Notification/<str:status>', Staff_Views.notification_status, name='notification_status'),
+                path('Staff/Leave/apply', Staff_Views.apply_leave, name='apply_leave'),
   
                 ########################################################################################################
                 # profile url

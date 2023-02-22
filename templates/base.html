@@ -14,7 +14,10 @@
   <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
   <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
   <!--  datatable -->
-  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" 
+      integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" 
+      crossorigin="anonymous">
+  </script>
   <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
 
 </head>
@@ -57,6 +60,15 @@
         format: 'dd/mm/yyyy'
       });
       $('#datePicker2').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+      $('#leaveDateTo').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+      $('#leaveDateFrom').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+      $('#leaveDate').datepicker({
         format: 'dd/mm/yyyy'
       });
     });

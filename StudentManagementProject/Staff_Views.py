@@ -34,3 +34,6 @@ def notification_status(request, status):
   notification.save()
   return redirect('view_staff_notification')
 
+
+def apply_leave(request):
+  return render(request, "Staff/applyLeave.html")
