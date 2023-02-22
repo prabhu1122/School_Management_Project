@@ -19,26 +19,27 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card card-table">
-      <div class="card-header bg-secondary-100 text-white bg-dark">
-        Leave Form
+      <div class="card-header border border-info d-flex justify-content-center bg-info text-primary">
+        <strong>Leave Form</strong>
       </div>
-      <div class="card-body">
-        <form class="row">
+      <div class="card-body border border-info">
+        <form class="row" method="POST" action="{% url 'apply_leave' %}">
+          {% csrf_token %}
           <div class="col-12 mb-0 pb-0 form-header d-flex justify-content-end">
-            <div class="col-12 col-md-4 form-group p-0 m-0 d-flex">
-              <span class="col col-3 input-group-text mr-0" style="border-radius: 5px 0 0 5px">Date:-&nbsp;</span>
-              <div class="col-9 input-group date p-0" id="leaveDate">
-                <input type="datetime-local" class="form-control" name="date_apply" required/>
-                <span class="input-group-append"></span>
+            <div class="col-4 input-group date" id="leaveDate">
+              <span class="col col-3 input-group-text m-0" style="border-radius: 5px 0 0 5px">Date:-&nbsp;</span>
+              <input type="text" class="form-control" name="leave" required/>
+              <span class="input-group-append">
                 <span class="input-group-text bg-light d-block">
                   <i class="fa fa-calendar"></i>
                 </span>
-              </div>
+              </span>
             </div>
           </div>
           <div class="col-12 d-flex p-0">
             <div class="col-12 form-header">
-              <p>To,</br>&nbsp;&nbsp;&nbsp;&nbsp;The Head Of Depart.</br>&nbsp;&nbsp;&nbsp;&nbsp;Preschool Jhunsi,</br>&nbsp;&nbsp;&nbsp;&nbsp;Jhunsi, Prayagraj</p>
+              <p>To,</br>&nbsp;&nbsp;&nbsp;&nbsp;The Head Of Depart.</br>&nbsp;&nbsp;&nbsp;&nbsp;Preschool Jhunsi,</br>&nbsp;&nbsp;&nbsp;&nbsp;Jhunsi,
+                Prayagraj</p>
               <p>Dear Sir,</p>
             </div>
           </div>
@@ -48,25 +49,32 @@
           </div>
           <div class="input-group mb-5">
             <span class="input-group-text" style="border-radius: 5px 0 0 5px">Message:-&nbsp;</span>
-            <textarea type="text" class="form-control" id="message" name="message"></textarea>
+            <textarea rows="5" class="form-control" id="message" name="message"></textarea>
+            <input type="text" class="form-control" name="staff_id" value="{{user.id}}" hidden/>
           </div>
           <div class="col-12 d-flex p-0 mb-5">
-            <div class="col-6 input-group date pl-0" id="leaveDateFrom">
-              <span class="col col-3 input-group-text m-0" style="border-radius: 5px 0 0 5px">From:-&nbsp;</span>
-              <input type="datetime-local" class="form-control" name="date_from" required/>
-              <span class="input-group-append"></span>
-              <span class="input-group-text bg-light d-block">
-                <i class="fa fa-calendar"></i>
-              </span>
+            <div class="col-6 m-0 p-0 pr-5">
+              <div class="input-group date mr-0" id="leaveDateFrom">
+                <span class="col col-2 input-group-text m-0" style="border-radius: 5px 0 0 5px">From:-&nbsp;</span>
+                <input type="text" class="form-control" name="leave_from" required/>
+                <span class="input-group-append">
+                  <span class="input-group-text bg-light d-block">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                </span>
+              </div>
             </div>
-            
-            <div class="col-6 input-group date pr-0" id="leaveDateTo">
-              <span class="col col-3 input-group-text m-0" style="border-radius: 5px 0 0 5px">To:-&nbsp;</span>
-              <input type="datetime-local" class="form-control" id="leaveDateTo" name="date_to" required/>
-              <span class="input-group-append"></span>
-              <span class="input-group-text bg-light d-block">
-                <i class="fa fa-calendar"></i>
-              </span>
+
+            <div class="col-6 m-0 p-0">
+              <div class="input-group date mr-0" id="leaveDateTo">
+                <span class="col col-2 input-group-text m-0" style="border-radius: 5px 0 0 5px">TO:-&nbsp;</span>
+                <input type="text" class="form-control" name="leave_to" required/>
+                <span class="input-group-append">
+                  <span class="input-group-text bg-light d-block">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
           <div class="col-12 d-flex p-0">
@@ -77,7 +85,7 @@
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
-            <a type="submit" href="#" class="btn btn-primary">Request Leave</a>
+            <button type="submit" class="btn btn-primary">Request Leave</button>
           </div>
         </form>
       </div>

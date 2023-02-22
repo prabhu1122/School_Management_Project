@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification
+from django.shortcuts import render, redirect
 from django.contrib import messages
+from myApp.models import Staff, StaffNotification, LeaveRequest
+
 
 @login_required(login_url='/')
 def home(request):
@@ -28,6 +29,7 @@ def view_staff_notification(request):
     return render(request, "Staff/view_staff_notification.html", context)
   return render(request, "Staff/view_staff_notification.html")
 
+
 def notification_status(request, status):
   notification = StaffNotification.objects.get(id=status)
   notification.status = 1
@@ -36,4 +38,25 @@ def notification_status(request, status):
 
 
 def apply_leave(request):
+  if request.method == "POST":
+    staff_id = request.POST.get('staff_id')
+    leave_date = request.POST.get('leave')
+    from_date = request.POST.get('leave_from')
+    to_date = request.POST.get('leave_to')
+    subject = request.POST.get('subject')
+    message = request.POST.get('message')
+    
+    staff_name = Staff.objects.get(admin=staff_id)
+    print(leave_date, from_date, to_date, subject, message, staff_name)
+    leave_request = LeaveRequest(
+      staff_name=staff_name,
+      leave_apply_date=leave_date,
+      leave_from=from_date,
+      leave_to=to_date,
+      subject=subject,
+      message=message,
+    )
+    leave_request.save()
+    messages.success(request, "Leave applied successfully")
+    return redirect('apply_leave')
   return render(request, "Staff/applyLeave.html")

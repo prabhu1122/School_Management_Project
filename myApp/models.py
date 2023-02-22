@@ -81,5 +81,20 @@ class StaffNotification(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   
   def __str__(self):
-    
     return self.staff_id.admin.first_name
+
+
+class LeaveRequest(models.Model):
+  objects = None
+  staff_name = models.ForeignKey(Staff, on_delete=models.CASCADE)
+  leave_apply_date = models.CharField(max_length=50)
+  leave_from = models.CharField(max_length=50)
+  leave_to = models.CharField(max_length=50)
+  subject = models.TextField()
+  message = models.TextField()
+  status = models.IntegerField(null=True, default=0)
+  created_at = models.DateTimeField(auto_now_add=True)
+  
+  def __str__(self):
+    return self.staff_name.admin.first_name + " " + self.staff_name.admin.last_name
+  
