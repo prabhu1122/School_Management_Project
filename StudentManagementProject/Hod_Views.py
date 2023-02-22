@@ -521,7 +521,7 @@ def decline_staff_leave(request, id):
   leave_id = LeaveRequest.objects.get(id=id)
   leave_id.status = 2
   leave_id.save()
-  messages.success(request, leave_id.staff_name.admin.first_name +" "
+  messages.error(request, leave_id.staff_name.admin.first_name +" "
                    + leave_id.staff_name.admin.last_name+"'s leave rejected")
   return redirect('view_staff_leave')
 

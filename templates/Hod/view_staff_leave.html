@@ -39,9 +39,9 @@
               <td>{{i.leave_from}}</td>
               <td>{{i.leave_to}}</td>
               <td>
-                <a href="#" class="btn btn-info">
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#leave_action">
                   <i class="fa fa-eye"></i>
-                </a>
+                </button>
                 <a href="{% url 'accept_staff_leave' i.id %}" class="btn btn-primary">Accept</a>
                 <a href="{% url 'decline_staff_leave' i.id %}" class="btn btn-danger">Decline</a>
               </td>
@@ -54,4 +54,35 @@
     </div>
   </div>
 </div>
+
+
+<!--Modal for leave action-->
+
+<div aria-hidden="true" aria-labelledby="leave_actionLabel" class="modal fade"
+     id="leave_action"
+     role="dialog"
+     tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="leave_actionLabel">
+          <span class="text-secondary">
+          Delete Notification
+          </span>
+        </h5>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...body
+      </div>
+      <div class="modal-footer">
+        <a class="btn bg-success-light float-right" data-dismiss="modal" href="#">Cancel</a>
+        <a class="btn bg-danger float-right"data-dismiss="modal" href="#">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
