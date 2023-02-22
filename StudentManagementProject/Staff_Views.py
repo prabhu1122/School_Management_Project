@@ -38,6 +38,9 @@ def notification_status(request, status):
 
 
 def apply_leave(request):
+  leave_status = LeaveRequest.objects.all()
+  print(leave_status)
+    
   if request.method == "POST":
     staff_id = request.POST.get('staff_id')
     leave_date = request.POST.get('leave')

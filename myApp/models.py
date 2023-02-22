@@ -90,7 +90,7 @@ class LeaveRequest(models.Model):
   leave_apply_date = models.CharField(max_length=50)
   leave_from = models.CharField(max_length=50)
   leave_to = models.CharField(max_length=50)
-  subject = models.TextField()
+  subject = models.CharField(max_length=200)
   message = models.TextField()
   status = models.IntegerField(null=True, default=0)
   created_at = models.DateTimeField(auto_now_add=True)
