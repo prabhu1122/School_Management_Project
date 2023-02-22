@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-
 from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification, LeaveRequest
 
 
@@ -531,4 +530,4 @@ def view_staff_leave(request):
 
 
 def view_student_leave(request):
-  return render(request, "Hod/notification.html")
+  return render(request, "Hod/view_student_leave.html")

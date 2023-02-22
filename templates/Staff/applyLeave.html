@@ -19,11 +19,11 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card card-table">
-      <div class="card-header border border-info d-flex justify-content-center bg-info text-primary">
-        <strong>Leave Form</strong>
+      <div class="card-header h4 border border-info d-flex justify-content-center bg-secondary text-light">
+        Leave Form
       </div>
-      <div class="card-body border border-info">
-        <form class="row" method="POST" action="{% url 'apply_leave' %}">
+      <div class="card-body text-white">
+        <form class="row text-dark" method="POST" action="{% url 'apply_leave' %}">
           {% csrf_token %}
           <div class="col-12 mb-0 pb-0 form-header d-flex justify-content-end">
             <div class="col-12 col-md-4 input-group date" id="leaveDate">
@@ -59,7 +59,7 @@
             <div class="col-12 col-md-6 mb-3 p-0 pr-md-5">
               <div class="input-group date mr-0" id="leaveDateFrom">
                 <span class="col col-2 input-group-text m-0" style="border-radius: 5px 0 0 5px">Start:</span>
-                <input type="text" class="form-control" name="leave_from" placeholder="Start-date" required/>
+                <input type="text" class="form-control" name="leave_from" placeholder="Start-Date" required/>
                 <span class="input-group-append">
                   <span class="input-group-text bg-light d-block">
                     <i class="fa fa-calendar"></i>
@@ -111,7 +111,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card card-table">
-      <div class="card-body border border-info">
+      <div class="card-body">
         <div class="table-responsive">
           <table id="table_id" class="table table-hover table-center mb-0">
             <thead>
