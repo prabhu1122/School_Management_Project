@@ -2,13 +2,17 @@ from django.shortcuts import render, redirect
 from myApp.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import login, logout
 from django.contrib import messages
-from myApp.models import CustomUser, Staff, StaffNotification
+from myApp.models import CustomUser, Staff, StaffNotification, LeaveRequest
 from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 def base(request):
-  return render(request, 'base.html')
+  leave_request_count = LeaveRequest.objects.filter(status=0)
+  context = {
+    "leave_count": leave_request_count,
+  }
+  return render(request, 'base.html', context)
 
 
 def Login(request):

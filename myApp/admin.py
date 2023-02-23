@@ -14,6 +14,10 @@ class StudentModel(admin.ModelAdmin):
     list_display = ['admin', 'gender', 'course_id']
 
 
+class LeaveModel(admin.ModelAdmin):
+    list_display = ['staff_name', 'subject']
+
+
 admin.site.register(CustomUser, UserModel)
 admin.site.register(Course)
 admin.site.register(SessionYear)
@@ -21,4 +25,4 @@ admin.site.register(Student, StudentModel)
 admin.site.register(Staff)
 admin.site.register(Subject)
 admin.site.register(StaffNotification)
-admin.site.register(LeaveRequest)
+admin.site.register(LeaveRequest, LeaveModel)

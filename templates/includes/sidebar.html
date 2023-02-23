@@ -30,7 +30,7 @@
             class="submenu {% active_link 'view_student' 'active' %}{% active_link 'add_student' 'active' %}"
         >
           <a href="#"
-          ><i class="fas fa-user-graduate"></i> <span> Students</span>
+          ><i class="fas fa-user-graduate"></i><span>Students</span>
             <span class="menu-arrow"></span
             ></a>
           <ul>
@@ -102,7 +102,16 @@
 
         <li class="submenu {% active_link 'view_staff_leave' 'active' %}{% active_link 'view_student_leave' 'active' %}">
           <a href="#">
-            <i class="fa fa-home"></i> <span>Leave</span>
+            <i class="fa fa-home position-relative">
+              {% if leave_count > 0 %}
+              <span
+                  class="position-absolute badge badge-danger d-flex justify-content-center align-items-center"
+                  style="border-radius: 50%; width: 15px; height: 15px; top: -3px; right: -3px;">
+                {{leave_count}}
+              </span>
+              {% endif %}
+            </i>
+            <span>Leave</span>
             <span class="menu-arrow"></span>
           </a>
           <ul>

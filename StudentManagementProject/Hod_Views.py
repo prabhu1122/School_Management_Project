@@ -11,7 +11,6 @@ def home(request):
   staff_count = Staff.objects.all().count()
   course_count = Course.objects.all().count()
   subject_count = Subject.objects.all().count()
-  
   student_gender_male = Student.objects.filter(gender="Male").count()
   student_gender_female = Student.objects.filter(gender="Female").count()
   
@@ -23,7 +22,6 @@ def home(request):
     "subjects_count": subject_count,
     "male_count": student_gender_male,
     "female_count": student_gender_female,
-    
   }
   return render(request, 'Hod/home.html', context)
 
@@ -73,12 +71,13 @@ def add_student(request):
         course_id=course_add,
         gender=gender,
       )
-      
       student.save()
       messages.success(request, user.first_name + " " + user.last_name + " added successfully")
       return redirect('add_student')
-  
-  context = {'courses': course, 'session_years': session_year}
+  context = {
+    'courses': course,
+    'session_years': session_year,
+  }
   return render(request, "Hod/add_student.html", context)
 
 
@@ -495,7 +494,7 @@ def delete_notification(request, id):
     messages.success(request, "Notification deleted successfully")
     return redirect('view_notification')
   except:
-    messages.error(request, "Something went wronge!!!")
+    messages.error(request, "Something went wrong!!!")
     return redirect('view_notification')
 
 
@@ -521,10 +520,12 @@ def view_staff_leave(request):
   leave_request = LeaveRequest.objects.all()
   staff = Staff.objects.all()
   see_notification = StaffNotification.objects.all()
+  leave_request_count = LeaveRequest.objects.filter(status=0).count()
   context = {
     "staffs": staff,
     "see_notification": see_notification,
     "leave": leave_request,
+    "leave_count": leave_request_count,
   }
   return render(request, 'Hod/view_staff_leave.html', context)
 

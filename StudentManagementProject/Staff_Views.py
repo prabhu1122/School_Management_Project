@@ -14,7 +14,7 @@ def home(request):
       "notification_count": notification_count,
     }
     return render(request, 'Staff/home.html', context)
-
+  return render(request, 'Staff/home.html')
 
 def view_staff_notification(request):
   staff = Staff.objects.filter(admin=request.user.id)

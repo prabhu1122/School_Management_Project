@@ -26,6 +26,7 @@
             <thead>
             <tr>
               <th>Name</th>
+              <th>Subject</th>
               <th>Applied Date</th>
               <th>Start</th>
               <th>End</th>
@@ -36,6 +37,7 @@
             {% for i in leave %}
             <tr>
               <td>{{i.staff_name}}</td>
+              <td>{{i.subject}}</td>
               <td>{{i.leave_apply_date}}</td>
               <td>{{i.leave_from}}</td>
               <td>{{i.leave_to}}</td>
