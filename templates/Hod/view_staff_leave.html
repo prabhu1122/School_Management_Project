@@ -40,11 +40,25 @@
               <td>{{i.leave_from}}</td>
               <td>{{i.leave_to}}</td>
               <td>
+                {% if i.status == 0 %}
                 <button class="btn btn-primary"
                         data-target="#leaveAction-{{forloop.counter}}"
                         data-toggle="modal"><i class="fa fa-eye"></i>
                   <span class="ml-1">Show</span>
                 </button>
+                {% elif i.status == 1 %}
+                <button class="btn btn-success"
+                        data-target="#leaveAction-{{forloop.counter}}"
+                        data-toggle="modal"><i class="fa fa-check"></i>
+                  <span class="ml-1">Accepted</span>
+                </button>
+                {% else %}
+                <button class="btn btn-danger"
+                        data-target="#leaveAction-{{forloop.counter}}"
+                        data-toggle="modal"><i class="fa fa-times"></i>
+                  <span class="ml-1">Rejected</span>
+                </button>
+                {% endif %}
               </td>
             </tr>
             {% endfor %}
