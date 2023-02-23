@@ -10,7 +10,7 @@ urlpatterns = [
                 path('base', views.base, name='base'),
   
                 # login url
-                path('', views.Login, name='login'),
+                path('', views.login_page, name='login'),
                 path('doLogin/', views.do_login, name='doLogin'),
                 path('doLogout/', views.do_logout, name='logout'),
                 path('register/', views.register, name='register'),
@@ -70,6 +70,7 @@ urlpatterns = [
                 path('Staff/Notification/view', Staff_Views.view_staff_notification, name='view_staff_notification'),
                 path('Staff/Notification/<str:status>', Staff_Views.notification_status, name='notification_status'),
                 path('Staff/Leave/apply', Staff_Views.apply_leave, name='apply_leave'),
+                path('Staff/Feedback', Staff_Views.staff_feedback, name='staff_feedback'),
   
                 ########################################################################################################
                 # profile url

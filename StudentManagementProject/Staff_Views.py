@@ -16,6 +16,8 @@ def home(request):
     return render(request, 'Staff/home.html', context)
   return render(request, 'Staff/home.html')
 
+
+@login_required(login_url="/")
 def view_staff_notification(request):
   staff = Staff.objects.filter(admin=request.user.id)
   for i in staff:
@@ -30,6 +32,7 @@ def view_staff_notification(request):
   return render(request, "Staff/view_staff_notification.html")
 
 
+@login_required(login_url="/")
 def notification_status(request, status):
   notification = StaffNotification.objects.get(id=status)
   notification.status = 1
@@ -37,6 +40,7 @@ def notification_status(request, status):
   return redirect('view_staff_notification')
 
 
+@login_required(login_url="/")
 def apply_leave(request):
   if request.method == "POST":
     staff_id = request.POST.get('staff_id')
@@ -69,3 +73,6 @@ def apply_leave(request):
     }
     return render(request, "Staff/applyLeave.html", context)
   
+  
+def staff_feedback(request):
+  return render(request, "Staff/staff_feedback.html")

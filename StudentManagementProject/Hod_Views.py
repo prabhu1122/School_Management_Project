@@ -393,6 +393,7 @@ def update_subject(request):
   return render(request, 'Hod/view_subject.html')
 
 
+@login_required(login_url="/")
 def delete_subject(request, id):
   subject = Subject.objects.get(id=id)
   subject.delete()
@@ -451,6 +452,7 @@ def update_session(request):
   return redirect('view_session')
 
 
+@login_required(login_url="/")
 def delete_session(request, id):
   session = SessionYear.objects.get(id=id)
   session.delete()
@@ -459,6 +461,7 @@ def delete_session(request, id):
   return redirect('view_session')
 
 
+@login_required(login_url="/")
 def view_notification(request):
   staff = Staff.objects.all()
   see_notification = StaffNotification.objects.all()
@@ -469,6 +472,7 @@ def view_notification(request):
   return render(request, "Hod/notification.html", context)
 
 
+@login_required(login_url="/")
 def save_notification(request):
   if request.method == "POST":
     staff_id = request.POST.get('staff_id')
@@ -486,6 +490,7 @@ def save_notification(request):
   return redirect('view_notification')
 
 
+@login_required(login_url="/")
 def delete_notification(request, id):
   try:
     notification = StaffNotification.objects.get(id=id)
@@ -498,6 +503,7 @@ def delete_notification(request, id):
     return redirect('view_notification')
 
 
+@login_required(login_url="/")
 def accept_staff_leave(request, id):
   leave_id = LeaveRequest.objects.get(id=id)
   leave_id.status = 1
@@ -507,6 +513,7 @@ def accept_staff_leave(request, id):
   return redirect('view_staff_leave')
 
 
+@login_required(login_url="/")
 def decline_staff_leave(request, id):
   leave_id = LeaveRequest.objects.get(id=id)
   leave_id.status = 2
@@ -516,6 +523,7 @@ def decline_staff_leave(request, id):
   return redirect('view_staff_leave')
 
 
+@login_required(login_url="/")
 def view_staff_leave(request):
   leave_request = LeaveRequest.objects.all()
   staff = Staff.objects.all()
@@ -530,5 +538,6 @@ def view_staff_leave(request):
   return render(request, 'Hod/view_staff_leave.html', context)
 
 
+@login_required(login_url="/")
 def view_student_leave(request):
   return render(request, "Hod/view_student_leave.html")

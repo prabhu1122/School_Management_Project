@@ -2,20 +2,16 @@ from django.shortcuts import render, redirect
 from myApp.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import login, logout
 from django.contrib import messages
-from myApp.models import CustomUser, Staff, StaffNotification, LeaveRequest
+from myApp.models import CustomUser
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
+@login_required(login_url="/")
 def base(request):
-  leave_request_count = LeaveRequest.objects.filter(status=0)
-  context = {
-    "leave_count": leave_request_count,
-  }
-  return render(request, 'base.html', context)
+  return render(request, 'base.html')
 
 
-def Login(request):
+def login_page(request):
   return render(request, 'login.html')
 
 
@@ -61,8 +57,8 @@ def profile(request):
 def profile_update(request):
   if request.method == 'POST':
     profile_pic = request.FILES.get('profile_pic')
-    first_name = request.POST.get('fname')
-    last_name = request.POST.get('lname')
+    first_name = request.POST.get('f_name')
+    last_name = request.POST.get('l_name')
     # email = request.POST.get('email')
     # username = request.POST.get('username')
     password = request.POST.get('password')

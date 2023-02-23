@@ -120,13 +120,13 @@
           </ul>
         </li>
 
-        <li class="submenu">
+        <li class="submenu {% active_link 'staff_feedback' 'active' %}{% active_link 'view_student_leave' 'active' %}">
           <a href="#">
             <i class="fa fa-comments"></i><span> Feedback</span>
             <span class="menu-arrow"></span>
           </a>
           <ul>
-            <li><a href="departments.html">Staff Feedback</a></li>
+            <li><a href="{% url 'staff_feedback' %}">Staff Feedback</a></li>
             <li><a href="add-department.html">Student Feedback</a></li>
           </ul>
         </li>
