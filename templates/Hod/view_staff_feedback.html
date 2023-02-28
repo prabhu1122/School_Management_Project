@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page-header m-0 p-0">
+  {% include 'includes/alert.html' %}
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card card-table ">
+      <div class="card-header h4 border border-info d-flex justify-content-center bg-secondary text-light">
+        Feedback
+      </div>
+      <div class="card-body text-white">
+        <form class="row text-dark" method="POST" action="{% url 'reply_staff_feedback' %}">
+          {% csrf_token %}
+          <div class="input-group" style="max-height: 430px; overflow-y: scroll;">
+            <div class="col m-0">
+              {% for i in feedbacks %}
+              <div class="card w-75 mt-4 mb-4 float-left border border-info">
+                <div class="card-header p-1 h5">
+                  {{i.staff_id}}
+                </div>
+                <div class="card-body h6 p-1">
+                  <small>{{i.feedback}}</small>
+                </div>
+              </div>
+              <div class="card w-75 mt-4 mb-4 float-right border border-info">
+                <div class="card-header p-1 h5">
+                  {{user.first_name}}&nbsp;{{user.last_name}}
+                </div>
+                <div class="card-body h6 p-1">
+                  <small>{{i.feedback_reply}}</small>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="input-group mt-2">
+            <span class="input-group-text">Reply To:</span>
+            <select class="form-control" name="staff_id" required>
+              {% for i in feedbacks %}
+              <option value="{{i.id}}">{{i.staff_id}}</option>
+              {% endfor %}
+            </select>
+            <input type="text" class="form-control" name="reply_feedback">
+            <button type="submit" class="input-group-text btn btn-primary">
+              <i class="fa fa-paper-plane"></i>&nbsp;
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

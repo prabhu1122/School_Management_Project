@@ -71,8 +71,4 @@ def apply_leave(request):
     context = {
       "leave_status": leave_status
     }
-    return render(request, "Staff/applyLeave.html", context)
-  
-  
-def staff_feedback(request):
-  return render(request, "Staff/staff_feedback.html")
+  return render(request, "Staff/applyLeave.html", context)

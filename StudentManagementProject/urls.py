@@ -52,6 +52,9 @@ urlpatterns = [
                 path('Hod/Session/update', Hod_Views.update_session, name='update_session'),
                 path('Hod/Session/delete/<str:id>', Hod_Views.delete_session, name='delete_session'),
   
+                path('Hod/Feedback/view', Hod_Views.view_staff_feedback, name='view_staff_feedback'),
+                path('Hod/Feedback/reply', Hod_Views.reply_staff_feedback, name='reply_staff_feedback'),
+  
                 # Hod Notification url
                 path('Hod/Notification/view', Hod_Views.view_notification, name='view_notification'),
                 path('Hod/Notification/save', Hod_Views.save_notification, name='save_notification'),
@@ -70,7 +73,6 @@ urlpatterns = [
                 path('Staff/Notification/view', Staff_Views.view_staff_notification, name='view_staff_notification'),
                 path('Staff/Notification/<str:status>', Staff_Views.notification_status, name='notification_status'),
                 path('Staff/Leave/apply', Staff_Views.apply_leave, name='apply_leave'),
-                path('Staff/Feedback', Staff_Views.staff_feedback, name='staff_feedback'),
   
                 ########################################################################################################
                 # profile url

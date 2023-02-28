@@ -1,7 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification, LeaveRequest
+
+from myApp.models import Course, SessionYear, CustomUser, Student, Staff, Subject, StaffNotification, LeaveRequest, \
+  StaffFeedback
 
 
 @login_required(login_url='/')
@@ -359,15 +361,20 @@ def view_subject(request):
 
 @login_required(login_url='/')
 def edit_subject(request, id):
-  subject = Subject.objects.get(id=id)
-  course = Course.objects.all()
-  staff = Staff.objects.all()
-  context = {
-    "subjects": subject,
-    "courses": course,
-    "staffs": staff,
-  }
-  return render(request, 'Hod/edit_subject.html', context)
+  try:
+    subject = Subject.objects.get(id=id)
+    course = Course.objects.all()
+    staff = Staff.objects.all()
+    context = {
+      "subjects": subject,
+      "courses": course,
+      "staffs": staff,
+    }
+    messages.success(request, "Subject updated successfully")
+    return render(request, 'Hod/edit_subject.html', context)
+  except ValueError:
+    messages.error(request, "Please enter the required field!!!")
+    return redirect('edit_subject')
 
 
 @login_required(login_url='/')
@@ -541,3 +548,19 @@ def view_staff_leave(request):
 @login_required(login_url="/")
 def view_student_leave(request):
   return render(request, "Hod/view_student_leave.html")
+
+
+def view_staff_feedback(request):
+  feedback = StaffFeedback.objects.all()
+  context = {
+    "feedbacks": feedback
+  }
+  return render(request, "Hod/view_staff_feedback.html", context)
+
+
+def reply_staff_feedback(request):
+  if request.method == "POST":
+    staff_id = request.POST.get('staff_id')
+    reply_feedback = request.POST.get('reply_feedback')
+    
+  return redirect('view_staff_feedback')
