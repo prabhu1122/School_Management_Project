@@ -108,4 +108,4 @@ class StaffFeedback(models.Model):
   updated_at = models.DateTimeField(auto_now=True)
   
   def __str__(self):
-    return self.staff_id.admin.first_name + "" + self.staff_id.admin.last_name
+    return self.staff_id.admin.first_name + " " + self.staff_id.admin.last_name
